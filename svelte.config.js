@@ -6,10 +6,8 @@ import adapter from '@sveltejs/adapter-node';
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	extensions: ['.svelte', ...mdsvexConfig.extensions],
-
 	kit: {
 		adapter: adapter(),
-		trailingSlash: "never",
 		prerender: {
 			default: true
 		},
@@ -18,7 +16,7 @@ const config = {
 			$utils: 'src/utils'
 		}
 	},
-
+	trailingSlash: "never",
 	preprocess: [
 		preprocess({
 			postcss: true,
