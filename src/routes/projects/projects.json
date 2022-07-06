@@ -22,5 +22,13 @@
 		"image": "https://ik.imagekit.io/kudadam/logo/logo.png",
 		"url": "https://useful-toolz.vercel.app",
 		"repo": "https://www.github.com/kudadam/useful-toolz"
+	},
+	{
+		"id": 4,
+		"name": "Svelte ScrollProgress",
+		"description": "A scroll progress indicator component for Svelte",
+		"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Npm-logo.svg/320px-Npm-logo.svg.png",
+		"url": "kudadam.github.io/svelte-scrollprogress/",
+		"repo": "https://github.com/kudadam/svelte-scrollprogress"
 	}
 ]
