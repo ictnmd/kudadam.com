@@ -5,7 +5,6 @@ image: https://ik.imagekit.io/kudadam/blog/svelte-reading-progress/hero
 category: Personal
 date: 2022-07-06
 excerpt: A little write up about how to create a reading progress indicator for Svelte
-draft: true
 keywords:
 	- svelte
 ---
