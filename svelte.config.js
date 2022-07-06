@@ -9,6 +9,10 @@ const config = {
 
 	kit: {
 		adapter: adapter(),
+		trailingSlash: "never",
+		prerender: {
+			default: true
+		},
 		alias: {
 			$components: 'src/components',
 			$utils: 'src/utils'
