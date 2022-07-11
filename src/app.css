@@ -255,6 +255,7 @@ body::-webkit-scrollbar-thumb:active {
 
 	a {
 		color: var(--primary-color);
+		word-wrap: break-word;
 	}
 
 	a:visited {
@@ -315,8 +316,6 @@ body::-webkit-scrollbar-thumb:active {
 
 	code {
 		@apply leading-relaxed px-[1.5px] break-words rounded bg-[#E9E9E9] dark:bg-neutral-700;
-		font-family: monospace;
-		word-break: keep-all;
 
 	}
 
