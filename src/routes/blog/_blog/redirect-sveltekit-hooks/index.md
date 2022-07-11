@@ -10,8 +10,9 @@ keywords:
   - sveltekit
 ---
 
-SvelteKit hooks enable us to do a lot of stuff. Am going to write a little tutorial on how you can create a redirect for your SvelteKit app using [hooks](https://kit.svelte.dev/docs/hooks)
-
+<p class="intro">
+SvelteKit hooks enable us to do a lot of stuff. Am going to write a little tutorial on how you can create a redirect for your SvelteKit app using <a href="https://kit.svelte.dev/docs/hooks">hooks</a>
+</p>
 
 
 Recently, I [wrote an article](understanding-sveltekit-hooks) about how to use SvelteKit hooks. Today, am going to demonstrate a simple example of how you can set a redirect for your app. 
@@ -44,7 +45,7 @@ First of all, we created and exported an asynchronous function called handle. Th
 
 Now, in the case when the if statement is true, what we do is return a [Response.redirect](https://developer.mozilla.org/en-US/docs/Web/API/Response/redirect) to the URL that we want the user to visit. The function takes two parameters, the URL and the status. The status is an optional parameter. 
 
-The reason why I used event.url.origin before appending the path was to use the same origin the user used to access the site. It isn't compulsory, you could just pop in the full link there and it would work without a problem.
+The reason why I used `event.url.origin` before appending the path was to use the same origin the user used to access the site. It isn't compulsory, you could just pop in the full link there and it would work without a problem.
 
 
 
