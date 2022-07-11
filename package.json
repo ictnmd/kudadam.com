@@ -9,10 +9,11 @@
 		"check": "svelte-check --tsconfig ./jsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./jsconfig.json --watch",
 		"lint": "prettier --check --plugin-search-dir=. . && eslint .",
+		"plop": "plop",
 		"format": "prettier --write --plugin-search-dir=. ."
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-node":"next",
+		"@sveltejs/adapter-node": "next",
 		"@sveltejs/kit": "next",
 		"aos": "^2.3.4",
 		"autoprefixer": "^10.4.7",
@@ -23,6 +24,7 @@
 		"imagekit-javascript": "^1.5.2",
 		"mdsvex": "^0.10.6",
 		"minisearch": "^5.0.0",
+		"plop": "^3.1.1",
 		"postcss": "^8.4.14",
 		"postcss-load-config": "^4.0.1",
 		"prettier": "^2.7.1",

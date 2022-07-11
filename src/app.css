@@ -316,6 +316,8 @@ body::-webkit-scrollbar-thumb:active {
 	code {
 		@apply leading-relaxed px-[1.5px] break-words rounded bg-[#E9E9E9] dark:bg-neutral-700;
 		font-family: monospace;
+		word-break: keep-all;
+
 	}
 
 	p {
@@ -341,7 +343,7 @@ body::-webkit-scrollbar-thumb:active {
 	}
 
 	hr {
-		@apply dark:border-gray-700;
+		@apply dark:border-neutral-700;
 	}
 
 	code::-webkit-scrollbar-thumb {
