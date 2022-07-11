@@ -11,7 +11,7 @@
 	export let date;
 
 	const imageProps = {
-		height: 180,
+		height: 200,
 		width: 320
 	};
 </script>
@@ -113,7 +113,7 @@
 		font-weight: bold;
 		color: transparent;
 		background-clip: text;
-		background-image: linear-gradient(to right, red, blue);
+		background-image: linear-gradient(red,yellow);
 	}
 
 	article > div {
