@@ -3,9 +3,23 @@
 	import Card from "$components/BlogCard";
 	import { PaginationNav } from "svelte-paginate";
 
-	export let page, total, posts;
-	let meta;
-	$: meta = {
+	/** @type {Number} */
+	export let page;
+	/** @type {Number} */
+	export let total;
+	/** @type {Array<any>} */
+	export let posts;
+
+	/**
+	 * @type {{
+		title: String,
+		description: String,
+		keywords: String,
+		canonical: URL,
+		image: URL
+	 }}
+	 */
+	let meta = {
 		title: `Blog Page ${page} • Kudadam`,
 		description:
 			"My personal journal where I write about tutorials, hacks and everything in-between",

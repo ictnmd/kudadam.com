@@ -1,4 +1,5 @@
 <script context="module">
+
 	export const load = async ({ params, props }) => {
 		const slug = params.slug;
 		let component = await import(`../_blog/${slug}/index.md`);
@@ -27,10 +28,25 @@
 	import ImageKit from "$utils/imagekit.js";
 	import PageProgress from "svelte-scrollprogress";
 	import { theme } from "$lib/stores";
+	import Cusdis from "svelte-cusdis";
 
-	export let metadata, content, related_articles;
+	/**
+	@type {{
+		title: String,
+		slug: URL,
+		description: String,
+		keywords: Array<String>,
+		date: Date,
+		image: URL
+	}} */
+	export let metadata;
+	/** @type {Object} */
+	export let content;
+	/** @type {Array<any>} */
+	export let related_articles;
 
-	let hits, Cusdis;
+	/** @type {Number} */
+	let hits;
 	$: hits = 0;
 
 	onMount(async () => {
@@ -39,7 +55,6 @@
 			body: JSON.stringify({ hits: "increase" })
 		});
 		importScripts("https://static.addtoany.com/menu/page.js");
-		Cusdis = await import("svelte-cusdis").then((e) => e.default);
 		import("$lib/css/highlighting.css");
 		let hits_response = await fetch(`/blog/${metadata.slug}.json`);
 		let hits_data = await hits_response.json();
@@ -198,8 +213,7 @@
 		{/if}
 		<h3>Comments</h3>
 		<div class="px-2">
-			<svelte:component
-				this={Cusdis}
+			<Cusdis
 				on:load={() => {
 					window.CUSDIS.initial();
 					window.CUSDIS.setTheme($theme);
@@ -216,9 +230,19 @@
 	</div>
 
 <PageProgress/>
+<!--
+  The use of the style tag below is to remove the padding from the Layout
+  Using the svelte style tag will lead to the padding being removed for all subsequent pages
+-->
+<style>
+	#layout_root {
+		@apply px-0;
+	}
+</style>
 </main>
 
 <style type="text/postcss">
+
 	main {
 		display: grid;
 		grid-template-columns: 1fr min(65ch, 100%) 1fr;
@@ -247,3 +271,5 @@
 		color: inherit;
 	}
 </style>
+
+
