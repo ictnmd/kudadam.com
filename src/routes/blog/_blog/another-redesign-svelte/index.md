@@ -46,8 +46,8 @@ In the previous version of my website, the blog posts were stored in a database.
 Upon a request to a page with a URL say `http://kudadam.com/blog/getting-a-diary`, the slug is extracted from the URL (everything after https://kudadam.com/blog/**) is considered a slug. Then, all the files in the blog directory are crawled with their extension removed, then a filter function finds the right file. Snippet bellow
 
 ```js
-const crawler = new fdir().glob("*.md");
-const files = crawler.crawl("blog").sync();
+const crawler = new fdir().glob('*.md');
+const files = crawler.crawl('blog').sync();
 file = files.map((file) => file.slug === slug);
 ```
 

@@ -1,5 +1,5 @@
 <script context="module">
-	import { dev } from "$app/env";
+	import { dev } from '$app/env';
 
 	export function load({ error, status }) {
 		return {
@@ -12,7 +12,7 @@
 </script>
 
 <script>
-	import SEO from "svelte-seo";
+	import SEO from 'svelte-seo';
 	export let status, error;
 </script>
 

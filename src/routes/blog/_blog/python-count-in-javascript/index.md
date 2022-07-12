@@ -13,7 +13,7 @@ date: 2021-10-23
 tags:
   - python
   - javascript
-last_updated: "2021-10-23 20:45"
+last_updated: '2021-10-23 20:45'
 ---
 
 <p class="intro">
@@ -49,8 +49,8 @@ Simple.
 In order to use the code, just create an array and call the count method like this.
 
 ```javascript
-let names = ["David", "Walsh", "David", "Tania", "Lucretius"];
-names.count("David"); //=> 2
+let names = ['David', 'Walsh', 'David', 'Tania', 'Lucretius'];
+names.count('David'); //=> 2
 ```
 
 Happy Coding Fellas :smile:

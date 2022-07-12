@@ -31,7 +31,7 @@ First of all, we need to install the module which is going to minify the rendere
 Okay in your project folder, open the file `src/hooks.js` inside your code editor and input the following code inside the file, I will explain below
 
 ```javascript
-import { minify } from "html-minifier"; //Imports the module
+import { minify } from 'html-minifier'; //Imports the module
 
 const minification_options = {
 	collapseBooleanAttributes: true,
@@ -56,7 +56,7 @@ const minification_options = {
 export async function handle({ request, resolve }) {
 	const response = await resolve(request);
 
-	if (response.headers["content-type"] === "text/html") {
+	if (response.headers['content-type'] === 'text/html') {
 		response.body = minify(response.body, minification_options); //Minifies the response.body
 	}
 

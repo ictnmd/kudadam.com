@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 function codeIsInRanges(number, arrayOfRanges) {
 	return arrayOfRanges.some(
@@ -7,7 +7,7 @@ function codeIsInRanges(number, arrayOfRanges) {
 }
 
 function isCJK(c) {
-	if ("string" !== typeof c) {
+	if ('string' !== typeof c) {
 		return false;
 	}
 	const charCode = c.charCodeAt(0);
@@ -21,11 +21,11 @@ function isCJK(c) {
 }
 
 function isAnsiWordBound(c) {
-	return " \n\r\t".includes(c);
+	return ' \n\r\t'.includes(c);
 }
 
 function isPunctuation(c) {
-	if ("string" !== typeof c) {
+	if ('string' !== typeof c) {
 		return false;
 	}
 	const charCode = c.charCodeAt(0);
@@ -78,7 +78,7 @@ export default function readingTime(text, options = {}) {
 	const displayed = Math.ceil(minutes.toFixed(2));
 
 	return {
-		text: displayed + " min read",
+		text: displayed + ' min read',
 		minutes: minutes,
 		time: time,
 		words: words

@@ -1,14 +1,14 @@
-import { defineMDSveXConfig as defineConfig } from "mdsvex";
+import { defineMDSveXConfig as defineConfig } from 'mdsvex';
 
-import remark_slug from "remark-slug";
-import remark_emoji from "remark-emoji";
-import remark_attr from "remark-attr";
-import remark_breaks from "remark-breaks";
-import rehype_toc from "rehype-toc";
-import rehype_external_links from "rehype-external-links";
+import remark_slug from 'remark-slug';
+import remark_emoji from 'remark-emoji';
+import remark_attr from 'remark-attr';
+import remark_breaks from 'remark-breaks';
+import rehype_toc from 'rehype-toc';
+import rehype_external_links from 'rehype-external-links';
 
 const config = defineConfig({
-	extensions: [".md"],
+	extensions: ['.md'],
 	rehypePlugins: [
 		[
 			rehype_toc,
@@ -17,15 +17,15 @@ const config = defineConfig({
 					if (toc.children[0].children.length >= 1) {
 						// Adds a paragraph element which contains the text "Table Of Contents"
 						toc.children.unshift({
-							type: "element",
-							tagName: "p",
+							type: 'element',
+							tagName: 'p',
 							properties: {
-								className: "font-semibold text-xl inline-block my-1"
+								className: 'font-semibold text-xl inline-block my-1'
 							},
 							children: [
 								{
-									type: "text",
-									value: "Table Of Contents"
+									type: 'text',
+									value: 'Table Of Contents'
 								}
 							]
 						});
@@ -36,7 +36,7 @@ const config = defineConfig({
 		[
 			rehype_external_links,
 			{
-				target: "_blank"
+				target: '_blank'
 			}
 		]
 	],
@@ -45,7 +45,7 @@ const config = defineConfig({
 		[
 			remark_attr,
 			{
-				scope: "every"
+				scope: 'every'
 			}
 		],
 		remark_slug,
@@ -53,7 +53,7 @@ const config = defineConfig({
 		remark_breaks
 	],
 	smartypants: {
-		dashes: "oldschool"
+		dashes: 'oldschool'
 	}
 });
 

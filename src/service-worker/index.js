@@ -1,12 +1,12 @@
-import { build, files, version, prerendered } from "$service-worker";
+import { build, files, version, prerendered } from '$service-worker';
 
 const APPLICATION_CACHE = `applicationCache-${version}`;
 const STATIC_CACHE = `staticCache-${version}`;
 const DYNAMIC_CACHE = `dynamicCache-${version}`;
 const networkFirstUrls = [/^\/blog\/[\w-]+\.json$/gm];
 
-self.addEventListener("install", (event) => {
-	console.info("[service worker] installing");
+self.addEventListener('install', (event) => {
+	console.info('[service worker] installing');
 	event.waitUntil(
 		Promise.all([
 			caches.open(DYNAMIC_CACHE).then((cache) => {
@@ -22,7 +22,7 @@ self.addEventListener("install", (event) => {
 	);
 });
 
-self.addEventListener("activate", (event) => {
+self.addEventListener('activate', (event) => {
 	event.waitUntil(
 		caches.keys().then((keys) => {
 			return Promise.all(
@@ -34,7 +34,7 @@ self.addEventListener("activate", (event) => {
 			);
 		})
 	);
-	console.info("[service worker] activated");
+	console.info('[service worker] activated');
 	return self.clients.claim();
 });
 
@@ -79,12 +79,12 @@ const cacheFirst = (event) => {
 	});
 };
 
-self.addEventListener("fetch", (event) => {
-	if (event.request.method !== "GET" || event.request.headers.has("range")) return;
+self.addEventListener('fetch', (event) => {
+	if (event.request.method !== 'GET' || event.request.headers.has('range')) return;
 
 	let url = new URL(event.request.url);
 
-	if (url.hostname === "localhost" || url.hostname === "kudadam.com") {
+	if (url.hostname === 'localhost' || url.hostname === 'kudadam.com') {
 		/* localhost is when using sveltekit preview 
     The point of all this is to prevent the service worker from caching the hits 
     count, since it always changes, we must make sure the service worker ignores it
@@ -101,8 +101,8 @@ self.addEventListener("fetch", (event) => {
 	}
 });
 
-self.addEventListener("message", async (event) => {
-	if (event.data === "SKIP_WAITING") {
+self.addEventListener('message', async (event) => {
+	if (event.data === 'SKIP_WAITING') {
 		self.skipWaiting();
 	}
 });

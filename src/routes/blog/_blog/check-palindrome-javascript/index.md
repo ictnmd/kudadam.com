@@ -1,5 +1,5 @@
 ---
-title: "JavaScript: How to check if a string is a palindrome"
+title: 'JavaScript: How to check if a string is a palindrome'
 description: How to check if a string is JavaScript is the same when read backwards or forward
 category: Programming
 image: https://ik.imagekit.io/kudadam/blog/check-palindrome-javascript/hero.jpg
@@ -37,10 +37,10 @@ These two other parameters are there to adjust how the function works.
 
 ```javascript
 const isPalindrome = (content, ignoreWhitespace = false, caseSensitive = false) => {
-	if (ignoreWhitespace) content = content.replaceAll(" ", "");
+	if (ignoreWhitespace) content = content.replaceAll(' ', '');
 	if (!caseSensitive) content = content.toLowerCase();
 
-	return content.split("").reverse().join("") === content;
+	return content.split('').reverse().join('') === content;
 };
 ```
 

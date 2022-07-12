@@ -1,36 +1,36 @@
 <script>
-	import { onMount } from "svelte";
-	import SheetModal from "../Sheet-Modal";
+	import { onMount } from 'svelte';
+	import SheetModal from '../Sheet-Modal';
 	$: showUpdate = false;
 
 	const dialogClicked = async () => {
 		showUpdate = false;
 		const registration = await navigator.serviceWorker.getRegistration();
 		if (registration.waiting) {
-			registration.waiting.postMessage("SKIP_WAITING");
+			registration.waiting.postMessage('SKIP_WAITING');
 		}
 	};
 
 	onMount(async () => {
-		if ("serviceWorker" in navigator) {
+		if ('serviceWorker' in navigator) {
 			const registration = await navigator.serviceWorker.getRegistration();
 			if (registration === undefined) return;
 			if (registration.waiting) {
 				showUpdate = true;
 			}
 
-			registration.addEventListener("updatefound", async () => {
+			registration.addEventListener('updatefound', async () => {
 				if (registration.installing) {
-					registration.installing.addEventListener("statechange", async () => {
+					registration.installing.addEventListener('statechange', async () => {
 						if (navigator.serviceWorker.controller) {
 							showUpdate = true;
-						} else console.log("Old service worker");
+						} else console.log('Old service worker');
 					});
 				}
 			});
 
 			let refreshing = false;
-			navigator.serviceWorker.addEventListener("controllerchange", () => {
+			navigator.serviceWorker.addEventListener('controllerchange', () => {
 				if (!refreshing) {
 					window.location.reload();
 					refreshing = true;

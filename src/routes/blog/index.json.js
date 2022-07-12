@@ -1,10 +1,10 @@
-import Path from "path";
-import { chunk } from "$utils";
-import { mode } from "$app/env";
-import sqlite from "sqlite3";
-import { readingTime } from "$utils";
+import Path from 'path';
+import { chunk } from '$utils';
+import { mode } from '$app/env';
+import sqlite from 'sqlite3';
+import { readingTime } from '$utils';
 
-const db = new sqlite.Database("./database.db", () => {});
+const db = new sqlite.Database('./database.db', () => {});
 db.serialize(() => {
 	db.run(
 		`
@@ -19,7 +19,7 @@ db.serialize(() => {
 
 export const getFilesHtml = async () => {
 	let array = new Array();
-	let data = import.meta.glob("./_blog/**/*.md");
+	let data = import.meta.glob('./_blog/**/*.md');
 	for (const datum in data) array.push([Path.win32.basename(Path.dirname(datum)), data[datum]()]);
 	let id = 1;
 	let files = Promise.all(
@@ -34,14 +34,14 @@ export const getFilesHtml = async () => {
 		})
 	);
 	files = await files;
-	files = files.filter((data) => data.draft !== true || mode === "development");
+	files = files.filter((data) => data.draft !== true || mode === 'development');
 	files = files.sort((a, b) => new Date(b.date) - new Date(a.date));
 	return files;
 };
 
 export const getFiles = async () => {
 	let array = new Array();
-	let data = import.meta.glob("./_blog/**/*.md");
+	let data = import.meta.glob('./_blog/**/*.md');
 	for (const datum in data) array.push([Path.win32.basename(Path.dirname(datum)), data[datum]()]);
 	let id = 1;
 	let files = Promise.all(
@@ -56,7 +56,7 @@ export const getFiles = async () => {
 		})
 	);
 	files = await files;
-	files = files.filter((data) => data.draft !== true || mode === "development");
+	files = files.filter((data) => data.draft !== true || mode === 'development');
 	files = files.sort((a, b) => new Date(b.date) - new Date(a.date));
 	return files;
 };
@@ -64,7 +64,7 @@ export const getFiles = async () => {
 export const getPopularArticles = async () => {
 	return new Promise((resolve, reject) => {
 		db.serialize(() => {
-			db.all("SELECT * FROM BLOG ORDER BY hits DESC LIMIT 0,6", (err, data) => {
+			db.all('SELECT * FROM BLOG ORDER BY hits DESC LIMIT 0,6', (err, data) => {
 				if (err) {
 					reject(err);
 				} else {
@@ -83,59 +83,60 @@ export const getPopularArticles = async () => {
 	});
 };
 
+/** @type import('@sveltejs/kit').RequestHandler */
 export const get = async ({ url }) => {
 	let posts = await getFiles();
-	posts = posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+	posts = posts.sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf());
 	let unsorted = posts;
 	let perPage = 6;
 	let page = 1;
 	let query = url.searchParams;
 	let results = new Object();
-	results["posts"] = posts[0];
+	results['posts'] = posts[0];
 
-	if (query.get("page")) {
-		let page = query.get("page");
-		results["posts"] = posts[page - 1];
+	if (query.get('page')) {
+		let page = query.get('page');
+		results['posts'] = posts[page - 1];
 	}
 
-	if (query.get("popular_articles")) {
+	if (query.get('popular_articles')) {
 		let popular_data = await getPopularArticles();
-		results["popular_articles"] = popular_data;
+		results['popular_articles'] = popular_data;
 	}
 
-	if (query.get("per_page")) perPage = query.get("per_page");
+	if (query.get('per_page')) perPage = query.get('per_page');
 
-	if (query.get("page")) page = query.get("page");
+	if (query.get('page')) page = query.get('page');
 
-	if (query.has("total")) {
-		results["total"] = unsorted.length;
+	if (query.has('total')) {
+		results['total'] = unsorted.length;
 	}
 
-	if (query.get("all")) {
-		results["all"] = unsorted;
+	if (query.get('all')) {
+		results['all'] = unsorted;
 	}
 
-	if (query.has("exclude")) {
+	if (query.has('exclude')) {
 		/* 
 		This always has to be the last, 
 		it is used to removed items from the object
 		*/
-		let excluded = query.get("exclude").split(",");
+		let excluded = query.get('exclude').split(',');
 		excluded.forEach((key) => {
 			delete results[key];
 		});
 	}
 
 	let chunked = chunk(posts, perPage);
-	results["posts"] = chunked[page - 1];
+	results['posts'] = chunked[page - 1];
 
-	if (query.get("limit")) {
-		results["limit"] = chunked.length;
+	if (query.get('limit')) {
+		results['limit'] = chunked.length;
 	}
 
 	return {
 		headers: {
-			"Content-Type": "application/json"
+			'Content-Type': 'application/json'
 		},
 		body: results
 	};

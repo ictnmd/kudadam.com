@@ -1,10 +1,14 @@
 <script type="text/javascript">
-	import ImageKit from "$utils/imagekit.js";
-
+	import ImageKit from '$utils/imagekit.js';
+	/** @type {String} */
 	export let title;
+	/** @type {String} */
 	export let description;
+	/** @type {String} */
 	export let image;
+	/** @type {String} */
 	export let url;
+	/** @type {String} */
 	export let repo;
 
 	const imageProps = {

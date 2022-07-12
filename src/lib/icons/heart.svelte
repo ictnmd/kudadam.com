@@ -1,6 +1,6 @@
 <script>
-	let Class = "";
-	export let id = "";
+	let Class = '';
+	export let id = '';
 	export { Class as class };
 </script>
 

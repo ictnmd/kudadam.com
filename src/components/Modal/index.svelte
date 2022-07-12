@@ -1,22 +1,22 @@
 <script>
-	import { createEventDispatcher } from "svelte";
+	import { createEventDispatcher } from 'svelte';
 
 	export let hidden = true;
-	let Class = "";
+	let Class = '';
 	let dispatch = createEventDispatcher();
 	export { Class as class };
 
 	const hideModal = () => {
 		hidden = !hidden;
-		document.body.style.overflowY = "scroll";
-		dispatch("hide", {
+		document.body.style.overflowY = 'scroll';
+		dispatch('hide', {
 			value: hidden
 		});
 	};
 </script>
 
 {#if !hidden}
-	{(document.body.style.overflowY = "hidden")}
+	{(document.body.style.overflowY = 'hidden')}
 	<div class="backdrop" on:click|self={hideModal}>
 		<div class="mx-auto my-[5%] {Class}">
 			<slot />

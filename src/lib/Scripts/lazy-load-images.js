@@ -5,9 +5,9 @@ const lazyLoad = () => {
 			let element = entry.target;
 			if (entry.isIntersecting) {
 				leaving = true;
-				element.setAttribute("src", element.getAttribute("data-src"));
-				element.removeAttribute("data-src");
-				element.removeAttribute("data-lazy-load");
+				element.setAttribute('src', element.getAttribute('data-src'));
+				element.removeAttribute('data-src');
+				element.removeAttribute('data-lazy-load');
 				observer.unobserve(element);
 			} else if (leaving) {
 				leaving = false;
@@ -15,8 +15,8 @@ const lazyLoad = () => {
 		});
 	});
 
-	const images = document.querySelectorAll("img[data-lazy-load]");
-	images.forEach( image => {
+	const images = document.querySelectorAll('img[data-lazy-load]');
+	images.forEach((image) => {
 		observer.observe(image);
 	});
 };

@@ -6,17 +6,17 @@
 			const response = await fetch(node.action, {
 				method: node.method,
 				body: new FormData(node),
-				headers: { accept: "application/json" }
+				headers: { accept: 'application/json' }
 			});
-			if (response.ok) alert("Hello, a verification email has been sent to your inbox");
+			if (response.ok) alert('Hello, a verification email has been sent to your inbox');
 			node.reset();
 			node.querySelector(`button[type="submit"]`).disabled = false;
 		};
-		node.addEventListener("submit", handleSubmit);
+		node.addEventListener('submit', handleSubmit);
 
 		return {
 			destroy() {
-				node.removeEventListener("submit", handleSubmit);
+				node.removeEventListener('submit', handleSubmit);
 			}
 		};
 	};

@@ -1,6 +1,6 @@
-import sqlite from "sqlite3";
+import sqlite from 'sqlite3';
 
-const db = new sqlite.Database("./database.db", () => {}); //This command will create the database for us if it does not exist
+const db = new sqlite.Database('./database.db', () => {}); //This command will create the database for us if it does not exist
 
 db.serialize(() => {
 	db.run(
@@ -18,7 +18,7 @@ db.serialize(() => {
 const getHitsCount = async (slug) => {
 	return new Promise((resolve, reject) => {
 		db.serialize(() => {
-			db.get("SELECT * FROM blog WHERE slug = ?", slug, (err, data) => {
+			db.get('SELECT * FROM blog WHERE slug = ?', slug, (err, data) => {
 				if (err) reject(err);
 				else resolve(data);
 			});
@@ -30,12 +30,12 @@ const increaseHitsCount = async (slug, hits) => {
 	return new Promise((resolve, reject) => {
 		db.serialize(() => {
 			if (hits === undefined) {
-				db.run("INSERT INTO blog (slug, hits) VALUES (?,?) ", [slug, 1], (err, data) => {
+				db.run('INSERT INTO blog (slug, hits) VALUES (?,?) ', [slug, 1], (err, data) => {
 					if (err) reject(err);
 					else resolve(data);
 				});
 			} else {
-				db.run("UPDATE blog SET hits = ? WHERE slug = ?", hits + 1, slug, (err, data) => {
+				db.run('UPDATE blog SET hits = ? WHERE slug = ?', hits + 1, slug, (err, data) => {
 					if (err) resolve(err);
 					else resolve(data);
 				});
@@ -49,11 +49,11 @@ export const get = async ({ params }) => {
 	let { slug } = params;
 	let hits = await getHitsCount(slug);
 	let hits_data = hits === undefined ? 1 : hits.hits;
-	results["slug"] = slug;
-	results["hits"] = hits_data;
+	results['slug'] = slug;
+	results['hits'] = hits_data;
 	return {
 		headers: {
-			"Content-Type": "application/json"
+			'Content-Type': 'application/json'
 		},
 		body: results
 	};

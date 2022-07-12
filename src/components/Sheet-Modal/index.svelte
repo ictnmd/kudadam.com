@@ -1,29 +1,29 @@
 <script>
 	export let open = false;
-	export let position = "bottom";
+	export let position = 'bottom';
 	export let showBackdrop = false;
 	export let clickBackdropToClose = true;
 	export let closeWithEscape = true;
-	import { slide } from "svelte/transition";
-	import { createEventDispatcher } from "svelte";
-	import { browser } from "$app/env";
+	import { slide } from 'svelte/transition';
+	import { createEventDispatcher } from 'svelte';
+	import { browser } from '$app/env';
 
 	let dispatch = createEventDispatcher();
 
 	const handleBackdropClick = () => {
 		if (clickBackdropToClose) {
 			open = !open;
-			document.body.style.overflowY = "auto";
-			dispatch("close", true);
+			document.body.style.overflowY = 'auto';
+			dispatch('close', true);
 		}
 	};
 </script>
 
 <svelte:window
 	on:keydown={(event) => {
-		if (event.key === "Escape" && closeWithEscape === true) {
+		if (event.key === 'Escape' && closeWithEscape === true) {
 			open = false;
-			dispatch("close", true);
+			dispatch('close', true);
 		}
 	}}
 />
@@ -32,13 +32,13 @@
 	class="sheet-dialog-container"
 	class:backdrop={showBackdrop}
 	on:click|self={handleBackdropClick}
-	style:position={open === true ? "fixed" : "revert"}
+	style:position={open === true ? 'fixed' : 'revert'}
 >
 	{#if open}
 		<span style:display="none"
-			>{#if browser && showBackdrop === true}{(document.body.style.overflowY = "hidden")}{/if}</span
+			>{#if browser && showBackdrop === true}{(document.body.style.overflowY = 'hidden')}{/if}</span
 		>
-		<div class="sheet-dialog" transition:slide class:top={position == "top"}>
+		<div class="sheet-dialog" transition:slide class:top={position == 'top'}>
 			<slot />
 		</div>
 	{/if}

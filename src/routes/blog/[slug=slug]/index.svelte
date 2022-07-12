@@ -1,11 +1,10 @@
 <script context="module">
-
 	/** @type {import('@sveltejs/kit').Load} */
 	export const load = async ({ params, props }) => {
 		const slug = params.slug;
 		let component = await import(`../_blog/${slug}/index.md`);
-		component.metadata["slug"] = slug;
-		component.metadata["readingTime"] = props.readingTime;
+		component.metadata['slug'] = slug;
+		component.metadata['readingTime'] = props.readingTime;
 		return {
 			props: {
 				content: component.default,
@@ -17,19 +16,19 @@
 </script>
 
 <script>
-	import Head from "svelte-seo";
-	import Card from "$components/BlogCard";
-	import RectangleList from "$lib/icons/RectangleList.svelte";
-	import Tags from "$lib/icons/Tags.svelte";
-	import Eye from "$lib/icons/Eye.svelte";
-	import { snakeCase, importScripts } from "$utils";
-	import { onMount } from "svelte";
-	import { browser } from "$app/env";
-	import { page } from "$app/stores";
-	import ImageKit from "$utils/imagekit.js";
-	import PageProgress from "svelte-scrollprogress";
-	import { theme } from "$lib/stores";
-	import Cusdis from "svelte-cusdis";
+	import Head from 'svelte-seo';
+	import Card from '$components/BlogCard';
+	import RectangleList from '$lib/icons/RectangleList.svelte';
+	import Tags from '$lib/icons/Tags.svelte';
+	import Eye from '$lib/icons/Eye.svelte';
+	import { snakeCase, importScripts } from '$utils';
+	import { onMount } from 'svelte';
+	import { browser } from '$app/env';
+	import { page } from '$app/stores';
+	import ImageKit from '$utils/imagekit.js';
+	import PageProgress from 'svelte-scrollprogress';
+	import { theme } from '$lib/stores';
+	import Cusdis from 'svelte-cusdis';
 
 	/**
 	@type {{
@@ -52,11 +51,11 @@
 
 	onMount(async () => {
 		await fetch(`/blog/${metadata.slug}.json`, {
-			method: "POST",
-			body: JSON.stringify({ hits: "increase" })
+			method: 'POST',
+			body: JSON.stringify({ hits: 'increase' })
 		});
-		importScripts("https://static.addtoany.com/menu/page.js");
-		import("$lib/css/highlighting.css");
+		importScripts('https://static.addtoany.com/menu/page.js');
+		import('$lib/css/highlighting.css');
 		let hits_response = await fetch(`/blog/${metadata.slug}.json`);
 		let hits_data = await hits_response.json();
 		console.log(hits_data);
@@ -72,7 +71,7 @@
 	openGraph={{
 		title: `${metadata.title}`,
 		description: `${metadata.description}`,
-		type: "article",
+		type: 'article',
 		url: `https://www.kudadam.com/blog/${metadata.slug}`,
 		article: {
 			publishedTime: `${metadata.date}`,
@@ -84,33 +83,33 @@
 				url: `${metadata.image}`,
 				width: 850,
 				height: 650,
-				alt: "Alt image"
+				alt: 'Alt image'
 			}
 		]
 	}}
 	twitter={{
-		site: "@kudadam_",
+		site: '@kudadam_',
 		title: `${metadata.title}`,
 		description: `${metadata.description}`,
 		image: `${metadata.image}`,
 		imageAlt: `${metadata.title}`
 	}}
 	jsonLd={{
-		"@type": "TechArticle",
+		'@type': 'TechArticle',
 		headline: `${metadata.title}`,
 		keywords: `${metadata.keywords}`,
 		datePublished: `${new Date(metadata.date).toISOString()}`,
 		image: [
-			`${metadata.image ? metadata.image : "https://ik.imagekit.io/kudadam/logo/logo.png?q=30"}`
+			`${metadata.image ? metadata.image : 'https://ik.imagekit.io/kudadam/logo/logo.png?q=30'}`
 		],
 		author: {
-			"@type": "Person",
-			name: "Lucretius Biah",
-			url: "https://www.kudadam.com/about"
+			'@type': 'Person',
+			name: 'Lucretius Biah',
+			url: 'https://www.kudadam.com/about'
 		},
 		mainEntityOfPage: {
-			"@type": "WebPage",
-			"@id": `https://www.kudadam.com/blog/${metadata.slug}`
+			'@type': 'WebPage',
+			'@id': `https://www.kudadam.com/blog/${metadata.slug}`
 		}
 	}}
 />
@@ -121,12 +120,12 @@
 		{#if metadata.image}
 			<img
 				data-lazy-load={true}
-				src={ImageKit(metadata.image,{
-					blur:70,
-					quality:1
+				src={ImageKit(metadata.image, {
+					blur: 70,
+					quality: 1
 				})}
-				data-src={ImageKit(metadata.image,{
-					quality:90
+				data-src={ImageKit(metadata.image, {
+					quality: 90
 				})}
 				alt={metadata.title}
 				id="post-image"
@@ -220,7 +219,7 @@
 					window.CUSDIS.setTheme($theme);
 				}}
 				attrs={{
-					appId: "2f49c941-a723-4350-a9eb-cad6fab4772b",
+					appId: '2f49c941-a723-4350-a9eb-cad6fab4772b',
 					pageId: `${metadata.slug}`,
 					pageUrl: `${$page.url.pathname}`,
 					pageTitle: `${metadata.title}`,
@@ -230,20 +229,19 @@
 		</div>
 	</div>
 
-<PageProgress/>
-<!--
+	<PageProgress />
+	<!--
   The use of the style tag below is to remove the padding from the Layout
   Using the svelte style tag will lead to the padding being removed for all subsequent pages
 -->
-<style>
-	#layout_root {
-		@apply px-0;
-	}
-</style>
+	<style>
+		#layout_root {
+			@apply px-0;
+		}
+	</style>
 </main>
 
 <style type="text/postcss">
-
 	main {
 		display: grid;
 		grid-template-columns: 1fr min(65ch, 100%) 1fr;
@@ -272,5 +270,3 @@
 		color: inherit;
 	}
 </style>
-
-

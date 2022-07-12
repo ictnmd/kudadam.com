@@ -1,2 +1,2 @@
-import Footer from "./index.svelte";
+import Footer from './index.svelte';
 export default Footer;

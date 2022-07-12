@@ -16,11 +16,11 @@ const config = {
 			$utils: 'src/utils'
 		}
 	},
-	trailingSlash: "never",
+	trailingSlash: 'never',
 	preprocess: [
 		preprocess({
 			postcss: true,
-			preserve: ["ld+json"]
+			preserve: ['ld+json']
 		}),
 		mdsvex(mdsvexConfig)
 	]

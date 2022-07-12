@@ -33,13 +33,16 @@ open = !open
 on:close={()=>{open= false}}
 --sheet-dialog-background="white"
 --sheet-dialog-color = "black"
+
 >
+
     <ul id="modal">
     	<li>Share</li>
     	<li>Get link</li>
     	<li>Edit name</li>
     	<li>Delete collection</li>
     </ul>
+
 </SheetModal>
 
 <script>

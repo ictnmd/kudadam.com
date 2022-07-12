@@ -1,19 +1,19 @@
 <script type="text/javascript">
-	import Head from "svelte-seo";
-	import BlogCard from "$components/BlogCard";
-	import ProjectCard from "$components/ProjectCard";
-	import { fade } from "svelte/transition";
-	import { onMount } from "svelte";
+	import Head from 'svelte-seo';
+	import BlogCard from '$components/BlogCard';
+	import ProjectCard from '$components/ProjectCard';
+	import { fade } from 'svelte/transition';
+	import { onMount } from 'svelte';
 
 	export let articles, projects;
 
 	let texts = [
-		"A full-stack web developer",
-		"A software developer",
-		"An open-source enthusiast",
-		"A frequent gamer🎮",
-		"An avid reader📗",
-		"A fan of Hardy Boys books"
+		'A full-stack web developer',
+		'A software developer',
+		'An open-source enthusiast',
+		'A frequent gamer🎮',
+		'An avid reader📗',
+		'A fan of Hardy Boys books'
 	];
 	let textsCounter = 0;
 	let currentText = texts[0];
@@ -24,8 +24,8 @@
 	}, 4000);
 
 	onMount(async () => {
-		let Aos = await import("aos").then((e) => e.default);
-		await import("aos/dist/aos.css");
+		let Aos = await import('aos').then((e) => e.default);
+		await import('aos/dist/aos.css');
 		Aos.init({
 			duration: 1500,
 			once: false
@@ -33,11 +33,11 @@
 	});
 
 	const SEO = {
-		title: "Lucretius Biah • Kudadam",
+		title: 'Lucretius Biah • Kudadam',
 		description:
-			"Hey, am Lucretius, a software developer and website designer. Welcome to my part of the internet. Feel free to read my blog, download my software or just look around",
-		keywords: "lucretius, biah, lucretius biah, lucretius website",
-		canonical: "https://www.kudadam.com"
+			'Hey, am Lucretius, a software developer and website designer. Welcome to my part of the internet. Feel free to read my blog, download my software or just look around',
+		keywords: 'lucretius, biah, lucretius biah, lucretius website',
+		canonical: 'https://www.kudadam.com'
 	};
 </script>
 
@@ -50,33 +50,33 @@
 		title: `${SEO.title}`,
 		description: `${SEO.description}`,
 		url: `${SEO.canonical}`,
-		type: "website",
+		type: 'website',
 		images: [
 			{
-				url: "https:imagekit.io/kudadam/logo/logo.png?q=50&w=850&h=650",
+				url: 'https:imagekit.io/kudadam/logo/logo.png?q=50&w=850&h=650',
 				width: 850,
 				height: 650,
-				alt: "Kudadam Logo"
+				alt: 'Kudadam Logo'
 			}
 		]
 	}}
 	twitter={{
-		site: "@kudadam_",
+		site: '@kudadam_',
 		title: `${SEO.title}`,
 		description: `${SEO.description}`,
-		image: "https:imagekit.io/kudadam/logo/logo.png?q=50&w=850&h=650",
-		imageAlt: "Logo of Kudadam"
+		image: 'https:imagekit.io/kudadam/logo/logo.png?q=50&w=850&h=650',
+		imageAlt: 'Logo of Kudadam'
 	}}
 	jsonLd={{
-		"@type": "Website",
+		'@type': 'Website',
 		url: `${SEO.canonical}`,
 		potentialAction: {
-			"@type": "SearchAction",
+			'@type': 'SearchAction',
 			target: {
-				"@type": "EntryPoint",
-				urlTemplate: "https://www.kudadam.com/search?q={search_term_string}"
+				'@type': 'EntryPoint',
+				urlTemplate: 'https://www.kudadam.com/search?q={search_term_string}'
 			},
-			"query-input": "required name=search_term_string"
+			'query-input': 'required name=search_term_string'
 		}
 	}}
 >

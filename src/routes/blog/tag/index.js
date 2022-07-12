@@ -1,4 +1,4 @@
-import { getFiles } from "../index.json.js";
+import { getFiles } from '../index.json.js';
 
 export const get = async () => {
 	const posts = await getFiles();
@@ -7,7 +7,7 @@ export const get = async () => {
 		if (post.tags) tags.add(...post.tags);
 	});
 	const results = new Object();
-	results["tags"] = [...tags];
+	results['tags'] = [...tags];
 
 	return {
 		body: results

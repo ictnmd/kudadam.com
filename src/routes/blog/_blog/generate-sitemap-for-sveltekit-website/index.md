@@ -31,21 +31,21 @@ It comes along with a CLI _(Command Line TooL)_ which makes sitemap generation e
 - Inide the file you created, paste the following code inside
 
 ```javascript
-import fs from "fs";
+import fs from 'fs';
 
 export async function get() {
 	try {
-		const data = fs.readFileSync("sitemap.xml", "utf8");
+		const data = fs.readFileSync('sitemap.xml', 'utf8');
 
 		return {
 			headers: {
-				"Content-Type": "application/xml"
+				'Content-Type': 'application/xml'
 			},
 			body: data
 		};
 	} catch (e) {
 		return {
-			body: "Error"
+			body: 'Error'
 		};
 	}
 }

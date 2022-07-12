@@ -1,25 +1,25 @@
 <script>
-	import Head from "svelte-seo";
-	import { enhance } from "$lib/Scripts/form";
-	import Whatsapp from "$lib/icons/Whatsapp.svelte";
-	import Phone from "$lib/icons/Phone.svelte";
-	import Telegram from "$lib/icons/Telegram.svelte";
+	import Head from 'svelte-seo';
+	import { enhance } from '$lib/Scripts/form';
+	import Whatsapp from '$lib/icons/Whatsapp.svelte';
+	import Phone from '$lib/icons/Phone.svelte';
+	import Telegram from '$lib/icons/Telegram.svelte';
 
 	const SEO = {
-		title: "Contact Me • Kudadam",
-		description: "This page contains all the information needed to contact me",
-		keywords: "contact lucretius, contact kudadam, contact lucretius biah",
-		canonical: "https://www.kudadam.com/contact",
-		image: "https:imagekit.io/kudadam/logo/logo.png"
+		title: 'Contact Me • Kudadam',
+		description: 'This page contains all the information needed to contact me',
+		keywords: 'contact lucretius, contact kudadam, contact lucretius biah',
+		canonical: 'https://www.kudadam.com/contact',
+		image: 'https://ik.imagekit.io/kudadam/logo/logo.png'
 	};
 
-	const done = (request, data, form) => {
-		alert("Mail has been sent");
+	const done = (request, form) => {
+		alert('Mail has been sent');
 		form.reset();
 	};
 
 	const error = () => {
-		alert("There was an error sending the mail");
+		alert('There was an error sending the mail');
 	};
 </script>
 
@@ -32,22 +32,22 @@
 		title: `${SEO.title}`,
 		description: `${SEO.description}`,
 		url: `${SEO.canonical}`,
-		type: "website",
+		type: 'website',
 		images: [
 			{
 				url: `${SEO.image}`,
 				width: 850,
 				height: 650,
-				alt: "Kudadam Logo"
+				alt: 'Kudadam Logo'
 			}
 		]
 	}}
 	twitter={{
-		site: "@kudadam_",
+		site: '@kudadam_',
 		title: `${SEO.title}`,
 		description: `${SEO.description}`,
 		image: `${SEO.image}`,
-		imageAlt: "Logo of Kudadam"
+		imageAlt: 'Logo of Kudadam'
 	}}
 />
 
@@ -85,7 +85,7 @@
 	</div>
 </main>
 
-<style>
+<style type="text/postcss">
 	main {
 		display: grid;
 		grid-template-columns: 1fr min(65ch, 100%) 1fr;

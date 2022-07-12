@@ -1,4 +1,4 @@
-import { getFiles } from "../index.json.js";
+import { getFiles } from '../index.json.js';
 
 export const get = async () => {
 	let posts = await getFiles();
@@ -8,7 +8,7 @@ export const get = async () => {
 		})
 	);
 	const results = new Object();
-	results["categories"] = [...categories];
+	results['categories'] = [...categories];
 
 	return {
 		body: results

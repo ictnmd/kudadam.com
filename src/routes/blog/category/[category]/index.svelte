@@ -1,6 +1,6 @@
 <script>
-	import Head from "svelte-seo";
-	import Card from "$components/BlogCard";
+	import Head from 'svelte-seo';
+	import Card from '$components/BlogCard';
 
 	export let posts, category;
 
@@ -21,22 +21,22 @@
 		title: `${meta.title}`,
 		description: `${meta.description}`,
 		url: `${meta.canonical}`,
-		type: "website",
+		type: 'website',
 		images: [
 			{
 				url: `${meta.image}`,
 				width: 850,
 				height: 650,
-				alt: "Og Image Alt"
+				alt: 'Og Image Alt'
 			}
 		]
 	}}
 	twitter={{
-		site: "@kudadam_",
+		site: '@kudadam_',
 		title: `${meta.title}`,
 		description: `${meta.description}`,
 		image: `${meta.image}`,
-		imageAlt: "Kudadam Logo"
+		imageAlt: 'Kudadam Logo'
 	}}
 />
 

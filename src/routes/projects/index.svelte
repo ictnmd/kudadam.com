@@ -1,18 +1,18 @@
 <script>
-	import Head from "svelte-seo";
-	import Card from "$components/ProjectCard";
+	import Head from 'svelte-seo';
+	import Card from '$components/ProjectCard';
 
-	/** @type {Array<Object>} */
+	/** @type {Array<any>} */
 	export let projects;
-	
+
 	const SEO = {
-		title: "Projects - Stuff curated by me • Kudadam",
+		title: 'Projects - Stuff curated by me • Kudadam',
 		description:
-			"This is a page which showcases a list of projects which were curated or designed by me",
+			'This is a page which showcases a list of projects which were curated or designed by me',
 		keywords:
-			"kudadam projects, lucretius projects, developer projects, web development projects, software development projects",
-		canonical: "https://www.kudadam.com/projects",
-		image: "https://ik.imagekit.io/kudadam/logo/logo.png"
+			'kudadam projects, lucretius projects, developer projects, web development projects, software development projects',
+		canonical: 'https://www.kudadam.com/projects',
+		image: 'https://ik.imagekit.io/kudadam/logo/logo.png'
 	};
 </script>
 
@@ -25,22 +25,22 @@
 		title: `${SEO.title}`,
 		description: `${SEO.description}`,
 		url: `${SEO.canonical}`,
-		type: "website",
+		type: 'website',
 		images: [
 			{
 				url: `${SEO.image}`,
 				width: 850,
 				height: 650,
-				alt: "Website logo image"
+				alt: 'Website logo image'
 			}
 		]
 	}}
 	twitter={{
-		site: "@kudadam_",
+		site: '@kudadam_',
 		title: `${SEO.title}`,
 		description: `${SEO.description}`,
 		image: `${SEO.image}`,
-		imageAlt: "Website logo image"
+		imageAlt: 'Website logo image'
 	}}
 />
 

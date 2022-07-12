@@ -1,2 +1,2 @@
-import Update from "./index.svelte";
+import Update from './index.svelte';
 export default Update;

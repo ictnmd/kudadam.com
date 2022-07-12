@@ -1,6 +1,6 @@
 <script type="text/javascript">
-	import ImageKit from "$utils/imagekit.js";
-	import { snakeCase } from "$utils";
+	import ImageKit from '$utils/imagekit.js';
+	import { snakeCase } from '$utils';
 
 	export let title;
 	export let slug;
@@ -113,7 +113,7 @@
 		font-weight: bold;
 		color: transparent;
 		background-clip: text;
-		background-image: linear-gradient(red,yellow);
+		background-image: linear-gradient(red, yellow);
 	}
 
 	article > div {

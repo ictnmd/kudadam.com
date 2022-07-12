@@ -1,5 +1,5 @@
 ---
-title: "Python: How To Make A Letter Counter"
+title: 'Python: How To Make A Letter Counter'
 description: Learn how to make a simple program which can count the number of occurrence of each letter in a string
 category: Programming
 excerpt: Learn how to make a simple program which can count the number of occurrence of each letter in a string

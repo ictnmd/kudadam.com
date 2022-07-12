@@ -1,5 +1,5 @@
-import { getFilesHtml } from "../index.json.js";
-import { snakeCase, includesMany, encodeHtml } from "$utils";
+import { getFilesHtml } from '../index.json.js';
+import { snakeCase, includesMany, encodeHtml } from '$utils';
 
 const sort_items = async (files) => {
 	let rss = ``;
@@ -21,16 +21,16 @@ const sort_items = async (files) => {
 export async function get({ url }) {
 	try {
 		let files = await getFilesHtml();
-		if (url.searchParams.has("category")) {
-			let categories = url.searchParams.get("category").split(",");
+		if (url.searchParams.has('category')) {
+			let categories = url.searchParams.get('category').split(',');
 			files = files.filter((file) => {
 				let category = snakeCase(file.category);
 				return categories.includes(category);
 			});
 		}
 
-		if (url.searchParams.has("tags")) {
-			let tags = url.searchParams.get("tags").split(",");
+		if (url.searchParams.has('tags')) {
+			let tags = url.searchParams.get('tags').split(',');
 			files = files.filter((file) => {
 				if (file.tags) return includesMany(tags, file.tags);
 			});
@@ -57,14 +57,14 @@ export async function get({ url }) {
 
 		return {
 			headers: {
-				"Content-Type": "application/xml"
+				'Content-Type': 'application/xml'
 			},
 			body: rss
 		};
 	} catch (e) {
 		console.log(e);
 		return {
-			body: "Error"
+			body: 'Error'
 		};
 	}
 }

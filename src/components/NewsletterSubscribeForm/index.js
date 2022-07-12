@@ -1,2 +1,2 @@
-import Newsletter from "./index.svelte";
+import Newsletter from './index.svelte';
 export default Newsletter;

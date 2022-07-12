@@ -1,61 +1,61 @@
 <script type="text/javascript">
-	import SearchIcon from "$lib/icons/search.svelte";
-	import Search from "$components/SiteSearch";
-	import { onMount } from "svelte";
-	import { page } from "$app/stores";
-	import Moon from "$lib/icons/moon.svelte";
-	import Sun from "$lib/icons/sun.svelte";
-	import { theme } from "$lib/stores";
-	import { debounce } from "$utils";
+	import SearchIcon from '$lib/icons/search.svelte';
+	import Search from '$components/SiteSearch';
+	import { onMount } from 'svelte';
+	import { page } from '$app/stores';
+	import Moon from '$lib/icons/moon.svelte';
+	import Sun from '$lib/icons/sun.svelte';
+	import { theme } from '$lib/stores';
+	import { debounce } from '$utils';
 	let navElement;
-	import Header from "svelte-headroom";
+	import Header from 'svelte-headroom';
 
 	let hidden = true;
 	let hideSearch = true;
 	let nav_links = [
-		{ name: "About", url: "/about", id: 1 },
-		{ name: "Contact", url: "/contact", id: 2 },
-		{ name: "Projects", url: "/projects", id: 3 },
-		{ name: "Blog", url: "/blog", id: 4 }
+		{ name: 'About', url: '/about', id: 1 },
+		{ name: 'Contact', url: '/contact', id: 2 },
+		{ name: 'Projects', url: '/projects', id: 3 },
+		{ name: 'Blog', url: '/blog', id: 4 }
 	];
 
 	const setMode = () => {
-		if ($theme === "light") {
-			document.documentElement.classList.add("dark");
-			theme.set("dark");
+		if ($theme === 'light') {
+			document.documentElement.classList.add('dark');
+			theme.set('dark');
 		} else {
-			document.documentElement.classList.remove("dark");
-			theme.set("light");
+			document.documentElement.classList.remove('dark');
+			theme.set('light');
 		}
 	};
 
 	onMount(() => {
-		document.addEventListener("mouseup", (e) => {
+		document.addEventListener('mouseup', (e) => {
 			let selected = e.target;
-			let closest = selected.closest("nav");
+			let closest = selected.closest('nav');
 			if (closest == null) hidden = true;
 		});
-		document.querySelector("#nav__header").parentElement.style.zIndex = 9999;
+		document.querySelector('#nav__header').parentElement.style.zIndex = 9999;
 	});
 </script>
 
 <svelte:window
 	on:scroll={debounce(() => {
 		window.scrollY >= 35
-			? navElement.classList.add("border-b")
-			: navElement.classList.remove("border-b");
+			? navElement.classList.add('border-b')
+			: navElement.classList.remove('border-b');
 	}, 30)}
 />
 <svelte:head>
 	<script>
 		if (document) {
-			let site_theme = localStorage.theme || "light";
-			if (site_theme === "dark") {
-				document.documentElement.classList.add("dark");
-				localStorage.theme = "dark";
+			let site_theme = localStorage.theme || 'light';
+			if (site_theme === 'dark') {
+				document.documentElement.classList.add('dark');
+				localStorage.theme = 'dark';
 			} else {
-				document.documentElement.classList.remove("dark");
-				localStorage.theme = "light";
+				document.documentElement.classList.remove('dark');
+				localStorage.theme = 'light';
 			}
 		}
 	</script>
@@ -67,7 +67,7 @@
 		hidden = true;
 	}}
 	on:pin={() => {
-		document.querySelector("#nav__header").parentElement.style.zIndex = "100";
+		document.querySelector('#nav__header').parentElement.style.zIndex = '100';
 	}}
 >
 	<nav
@@ -95,7 +95,7 @@
 		>
 		<button
 			title="Open or close navigation bar"
-			aria-label={hidden === true ? "open" : "close"}
+			aria-label={hidden === true ? 'open' : 'close'}
 			class="ml-auto shadow-none px-1 md:hidden bg-transparent !text-inherit"
 			on:click={() => {
 				hidden = !hidden;
@@ -139,7 +139,7 @@
 				{/each}
 				<li class="p-3 text-lg font-semibold">
 					<span on:click={setMode} title="Change Mode">
-						{#if $theme === "light"}<Moon />{:else}<Sun />{/if}
+						{#if $theme === 'light'}<Moon />{:else}<Sun />{/if}
 					</span>
 				</li>
 				<slot />

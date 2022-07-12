@@ -1,8 +1,11 @@
 <script>
-	export let posts, tag;
+	/** @type {Array<any>}*/
+	export let posts;
+	/** @type {String}*/
+	export let tag;
 
-	import Head from "svelte-seo";
-	import Card from "$components/BlogCard";
+	import Head from 'svelte-seo';
+	import Card from '$components/BlogCard';
 
 	const meta = {
 		title: `${tag} Tag • Kudadam Blog`,
@@ -21,39 +24,39 @@
 		title: meta.title,
 		description: meta.description,
 		url: `${meta.canonical}`,
-		type: "website",
+		type: 'website',
 		images: [
 			{
 				url: `${meta.image}`,
 				width: 850,
 				height: 650,
-				alt: "Og Image Alt"
+				alt: 'Og Image Alt'
 			}
 		]
 	}}
 	twitter={{
-		site: "@kudadam_",
+		site: '@kudadam_',
 		title: `${meta.title}`,
 		description: `${meta.description}`,
 		image: `${meta.image}`,
-		imageAlt: "Kudadam Logo"
+		imageAlt: 'Kudadam Logo'
 	}}
 />
 
 <main>
 	<div>
 		<h1 class="text-center font-bold">Blog Posts under {tag}</h1>
-		<section class="flex flex-wrap py-4 items-center justify-center items-center">
+		<section class="flex flex-wrap py-4 items-center justify-center">
 			{#each posts as post}
 				<Card
-                                   title={post.title}
-			           image={post.image}
-				   date={post.date}
-			           slug={post.slug}
-				   category={post.category}
-				   excerpt={post.excerpt}
-			           readingTime={post.readingTime.text}
-                                 />
+					title={post.title}
+					image={post.image}
+					date={post.date}
+					slug={post.slug}
+					category={post.category}
+					excerpt={post.excerpt}
+					readingTime={post.readingTime.text}
+				/>
 			{/each}
 		</section>
 	</div>
@@ -68,4 +71,4 @@
 	main div {
 		grid-column: 2/3;
 	}
-</style> 
+</style>

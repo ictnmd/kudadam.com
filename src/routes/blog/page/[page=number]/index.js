@@ -1,20 +1,20 @@
-import { chunk } from "$utils";
-import { getFiles } from "../../index.json.js";
+import { chunk } from '$utils';
+import { getFiles } from '../../index.json.js';
 
 export const get = async ({ params }) => {
 	const page = params.page;
 	const files = await getFiles();
 
-	if (page === "1") {
+	if (page === '1') {
 		return {
 			headers: {
-				Location: "/blog"
+				Location: '/blog'
 			},
 			status: 301
 		};
 	}
 
-	if (page > chunk(files, 6).length || page === "0") {
+	if (page > chunk(files, 6).length || page === '0') {
 		return {
 			status: 404
 		};
@@ -22,9 +22,9 @@ export const get = async ({ params }) => {
 
 	const data = chunk(files, 6);
 	const results = new Object();
-	results["posts"] = data[page - 1];
-	results["page"] = page;
-	results["total"] = files.length;
+	results['posts'] = data[page - 1];
+	results['page'] = page;
+	results['total'] = files.length;
 
 	return {
 		body: results

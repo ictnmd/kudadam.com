@@ -1,4 +1,4 @@
-import { invalidate } from "$app/navigation";
+import { invalidate } from '$app/navigation';
 
 export const enhance = (form, { done, error } = {}) => {
 	const handleForm = async (event) => {
@@ -7,7 +7,7 @@ export const enhance = (form, { done, error } = {}) => {
 			let request = await fetch(form.action, {
 				method: form.method,
 				headers: {
-					accept: "application/json"
+					accept: 'application/json'
 				},
 				body: new FormData(form)
 			});
@@ -22,11 +22,11 @@ export const enhance = (form, { done, error } = {}) => {
 		}
 	};
 
-	form.addEventListener("submit", handleForm);
+	form.addEventListener('submit', handleForm);
 
 	return {
 		destroy() {
-			form.removeEventListener("submit", handleForm);
+			form.removeEventListener('submit', handleForm);
 		}
 	};
 };

@@ -1,6 +1,6 @@
 <script>
-	let Class = "";
-	export let color = "currentColor";
+	let Class = '';
+	export let color = 'currentColor';
 	export { Class as class };
 </script>
 

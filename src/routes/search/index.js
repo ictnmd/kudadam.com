@@ -1,9 +1,9 @@
-import { getFiles } from "../blog/index.json";
+import { getFiles } from '../blog/index.json';
 
 export const get = async () => {
 	const files = await getFiles();
 	const results = new Object();
-	results["data"] = files;
+	results['data'] = files;
 	return {
 		body: results
 	};

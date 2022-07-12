@@ -1,14 +1,14 @@
 <script>
-	import Head from "svelte-seo";
+	import Head from 'svelte-seo';
 
 	/** @type {Array<String>} */
 	export let tags;
 
 	const meta = {
-		title: "Blog Tags • Kudadam",
-		description: "This pages shows all the blog tags",
-		url: "https://www.kudadam.com/blog/tag",
-		image: "https://ik.imagekit.io/kudadam/logo/logo.png"
+		title: 'Blog Tags • Kudadam',
+		description: 'This pages shows all the blog tags',
+		url: 'https://www.kudadam.com/blog/tag',
+		image: 'https://ik.imagekit.io/kudadam/logo/logo.png'
 	};
 </script>
 
@@ -21,22 +21,22 @@
 		title: `${meta.title}`,
 		description: `${meta.description}`,
 		url: `${meta.url}`,
-		type: "website",
+		type: 'website',
 		images: [
 			{
 				url: `${meta.image}`,
 				width: 850,
 				height: 650,
-				alt: "Logo"
+				alt: 'Logo'
 			}
 		]
 	}}
 	twitter={{
-		site: "@kudadam_",
+		site: '@kudadam_',
 		title: `${meta.title}`,
 		description: `${meta.description}`,
 		image: `${meta.image}`,
-		imageAlt: "Logo of Kudadam"
+		imageAlt: 'Logo of Kudadam'
 	}}
 />
 

@@ -1,7 +1,7 @@
 <script>
-	let Class = "";
+	let Class = '';
 	export { Class as class };
-	export let color = "currentColor";
+	export let color = 'currentColor';
 </script>
 
 <svg xmlns="http://www.w3.org/2000/svg" class="icon {Class}" fill={color} viewBox="0 0 448 512"

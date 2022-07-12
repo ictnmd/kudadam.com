@@ -38,10 +38,10 @@ After that, we open our `feed.js` file and write the following code.
 I will explain below
 
 ```js
-import fetch from "node-fetch";
+import fetch from 'node-fetch';
 
 const get_items = async () => {
-	let res = await fetch("https://kudadam.com/blog.json?all=true");
+	let res = await fetch('https://kudadam.com/blog.json?all=true');
 	let posts = await res.json();
 	return posts;
 };
@@ -84,7 +84,7 @@ export function get(req, res, next) {
   </rss>
 
     `;
-		res.setHeader("Content-Type", "application/xml");
+		res.setHeader('Content-Type', 'application/xml');
 		res.end(feed);
 	});
 }

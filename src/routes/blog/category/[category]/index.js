@@ -1,5 +1,5 @@
-import { getFiles } from "../../index.json.js";
-import { snakeCase } from "$utils";
+import { getFiles } from '../../index.json.js';
+import { snakeCase } from '$utils';
 
 export const get = async ({ params }) => {
 	const category = params.category;
@@ -9,8 +9,8 @@ export const get = async ({ params }) => {
 	});
 
 	const results = new Object();
-	results["posts"] = data;
-	results["category"] = data[0].category;
+	results['posts'] = data;
+	results['category'] = data[0].category;
 
 	if (data.length === 0) {
 		return {

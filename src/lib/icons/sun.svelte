@@ -1,7 +1,7 @@
 <script>
-	export let height = "24";
-	export let width = "24";
-	let Class = "";
+	export let height = '24';
+	export let width = '24';
+	let Class = '';
 	export { Class as class };
 </script>
 

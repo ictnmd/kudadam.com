@@ -1,19 +1,19 @@
 <script context="module">
-	import Card from "$components/BlogCard";
-	import { PaginationNav } from "svelte-paginate";
-	import Head from "svelte-seo";
+	import Card from '$components/BlogCard';
+	import { PaginationNav } from 'svelte-paginate';
+	import Head from 'svelte-seo';
 </script>
 
 <script>
 	export let posts, total, popular_articles;
 
 	const meta = {
-		title: "Blog - My personal journal • Kudadam",
+		title: 'Blog - My personal journal • Kudadam',
 		description:
-			"My personal journal where I write about tutorials, hacks and everything in-between",
-		keywords: "lucretius blog, lucretius biah blog, web developer blog, developer blog, portfolio",
-		canonical: "https://www.kudadam.com/blog",
-		image: "https://ik.imagekit.io/kudadam/logo/logo.png"
+			'My personal journal where I write about tutorials, hacks and everything in-between',
+		keywords: 'lucretius blog, lucretius biah blog, web developer blog, developer blog, portfolio',
+		canonical: 'https://www.kudadam.com/blog',
+		image: 'https://ik.imagekit.io/kudadam/logo/logo.png'
 	};
 </script>
 
@@ -26,22 +26,22 @@
 		title: `${meta.title}`,
 		description: `${meta.description}`,
 		url: `${meta.canonical}`,
-		type: "website",
+		type: 'website',
 		images: [
 			{
 				url: `${meta.image}`,
 				width: 850,
 				height: 650,
-				alt: "Blog post"
+				alt: 'Blog post'
 			}
 		]
 	}}
 	twitter={{
-		site: "@kudadam_",
+		site: '@kudadam_',
 		title: `${meta.title}`,
 		description: `${meta.description}`,
 		image: `${meta.image}`,
-		imageAlt: "Blog Logo"
+		imageAlt: 'Blog Logo'
 	}}
 />
 
@@ -98,7 +98,7 @@
 			>
 				<a
 					sveltekit:prefetch
-					href={pageNumber === 1 ? "/blog" : `/blog/page/${pageNumber}`}
+					href={pageNumber === 1 ? '/blog' : `/blog/page/${pageNumber}`}
 					class="button hover:text-white visited:text-white px-4"
 					slot="number">{pageNumber}</a
 				>
@@ -111,7 +111,7 @@
 <style type="text/postcss">
 	:global(.headings::after) {
 		display: block;
-		content: "";
+		content: '';
 		padding: 2px;
 		border-radius: 8px;
 		width: 98%;

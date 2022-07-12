@@ -1,12 +1,12 @@
 <script>
-	import Head from "svelte-seo";
-	import { snakeCase } from "$utils";
+	import Head from 'svelte-seo';
+	import { snakeCase } from '$utils';
 	export let categories;
 	const meta = {
-		title: "Blog Category • Kudadam",
-		description: "This page displays all the blog categories",
-		canonical: "https://www.kudadam.com/blog/category",
-		image: "https://ik.imagekit.io/kudadam/logo/logo.png"
+		title: 'Blog Category • Kudadam',
+		description: 'This page displays all the blog categories',
+		canonical: 'https://www.kudadam.com/blog/category',
+		image: 'https://ik.imagekit.io/kudadam/logo/logo.png'
 	};
 </script>
 
@@ -19,22 +19,22 @@
 		title: `${meta.title}`,
 		description: `${meta.description}`,
 		url: `${meta.canonical}`,
-		type: "website",
+		type: 'website',
 		images: [
 			{
 				url: `${meta.image}`,
 				width: 850,
 				height: 650,
-				alt: "Logo"
+				alt: 'Logo'
 			}
 		]
 	}}
 	twitter={{
-		site: "@kudadam_",
+		site: '@kudadam_',
 		title: `${meta.title}`,
 		description: `${meta.description}`,
 		image: `${meta.image}`,
-		imageAlt: "Logo of Kudadam"
+		imageAlt: 'Logo of Kudadam'
 	}}
 />
 

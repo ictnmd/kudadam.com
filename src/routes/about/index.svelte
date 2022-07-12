@@ -1,30 +1,30 @@
 <script type="text/javascript">
-	import Head from "svelte-seo";
-	import { onMount } from "svelte";
-	import { importScripts } from "$utils";
-	import ImageKit from "$utils/imagekit.js"
-	let profileImage = "https://ik.imagekit.io/kudadam/me/cartoon_me_1"
+	import Head from 'svelte-seo';
+	import { onMount } from 'svelte';
+	import { importScripts } from '$utils';
+	import ImageKit from '$utils/imagekit.js';
+	let profileImage = 'https://ik.imagekit.io/kudadam/me/cartoon_me_1';
 
 	const SEO = {
-		title: "About - Everything about Lucretius Biah • Kudadam",
+		title: 'About - Everything about Lucretius Biah • Kudadam',
 		description:
 			"Hey, I'm Lucretius Biah. A 17 year old developer located in Wakanda. I program useful software and also help to design beautiful websites. This is my personal website where I write almost anything i like",
 		keywords:
-			"about kudadam, about lucretius biah, about lucretius biah, about teen developer, lucretius biah, lucretius, lucretius programmer",
-		canonical: "https://www.kudadam.com/about",
-		image: "https://ik.imagekit.io/kudadam/profile/lucretius.jpg"
+			'about kudadam, about lucretius biah, about lucretius biah, about teen developer, lucretius biah, lucretius, lucretius programmer',
+		canonical: 'https://www.kudadam.com/about',
+		image: 'https://ik.imagekit.io/kudadam/profile/lucretius.jpg'
 	};
 	const certificates = [
 		{
-			title: "HackerRank Python (Basic) Certificate",
-			date: new Date("17-07-2021"),
+			title: 'HackerRank Python (Basic) Certificate',
+			date: new Date('17-07-2021'),
 			image_url:
-				"https://ik.imagekit.io/kudadam/me/certificates/hackerrank_python_beginner_py4W8_AXe.png"
+				'https://ik.imagekit.io/kudadam/me/certificates/hackerrank_python_beginner_py4W8_AXe.png'
 		}
 	];
 
 	onMount(async () => {
-		await importScripts("https://cdnjs.cloudflare.com/ajax/libs/fslightbox/3.3.1/index.min.js");
+		await importScripts('https://cdnjs.cloudflare.com/ajax/libs/fslightbox/3.3.1/index.min.js');
 	});
 </script>
 
@@ -37,36 +37,36 @@
 		title: `${SEO.title}`,
 		description: `${SEO.description}`,
 		url: `${SEO.canonical}`,
-		type: "profile",
+		type: 'profile',
 		images: [
 			{
-				url: "https://ik.imagekit.io/kudadam/profile/lucretius.jpg?q=5&w=850&h=650",
+				url: 'https://ik.imagekit.io/kudadam/profile/lucretius.jpg?q=5&w=850&h=650',
 				width: 850,
 				height: 650,
-				alt: "Kudadam Profile image"
+				alt: 'Kudadam Profile image'
 			}
 		]
 	}}
 	twitter={{
-		site: "@kudadam_",
+		site: '@kudadam_',
 		title: `${SEO.title}`,
 		description: `${SEO.description}`,
-		image: "https://ik.imagekit.io/kudadam/profile/lucretius.jpg?q=5",
-		imageAlt: "Profile image of Lucretius"
+		image: 'https://ik.imagekit.io/kudadam/profile/lucretius.jpg?q=5',
+		imageAlt: 'Profile image of Lucretius'
 	}}
 	jsonLd={{
-		"@type": "AboutPage",
+		'@type': 'AboutPage',
 		description: `${SEO.description}`,
 		image: `https://ik.imagekit.io/kudadam/profile/lucretius.jpg?q=10`,
 		mainEntityOfPage: `${SEO.canonical}`,
 		url: `${SEO.canonical}`,
 		breadcrumb: {
-			"@type": "BreadcrumbList",
+			'@type': 'BreadcrumbList',
 			itemListElement: [
 				{
-					"@type": "ListItem",
+					'@type': 'ListItem',
 					position: 1,
-					name: "About"
+					name: 'About'
 				}
 			]
 		}
@@ -82,16 +82,16 @@
 					data-lazy-load="true"
 					class="block mx-auto border rounded p-2 dark:border-gray-700"
 					loading="eager"
-					src="{ImageKit(profileImage,{
-						quality:1,
-						blur:99,
-						height:300,
-						width:300
-					})}"
-					data-src={ImageKit(profileImage,{
-						quality:90,
-						height:300,
-						width:300
+					src={ImageKit(profileImage, {
+						quality: 1,
+						blur: 99,
+						height: 300,
+						width: 300
+					})}
+					data-src={ImageKit(profileImage, {
+						quality: 90,
+						height: 300,
+						width: 300
 					})}
 					alt="Lucretius Kudadam Biah"
 					height="300"

@@ -1,2 +1,2 @@
-import Card from "./index.svelte";
+import Card from './index.svelte';
 export default Card;
