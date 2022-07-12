@@ -2,9 +2,9 @@
 	import Head from "svelte-seo";
 	import Card from "$components/ProjectCard";
 
-	/** @type {Object} */
+	/** @type {Array<Object>} */
 	export let projects;
-
+	
 	const SEO = {
 		title: "Projects - Stuff curated by me • Kudadam",
 		description:

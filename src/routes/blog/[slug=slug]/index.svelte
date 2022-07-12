@@ -1,5 +1,6 @@
 <script context="module">
 
+	/** @type {import('@sveltejs/kit').Load} */
 	export const load = async ({ params, props }) => {
 		const slug = params.slug;
 		let component = await import(`../_blog/${slug}/index.md`);
@@ -66,7 +67,7 @@
 <Head
 	title="{metadata.title} • Kudadam Blog"
 	description={metadata.description}
-	keywords={metadata.keywords}
+	keywords={metadata.keywords.toString()}
 	canonical="https://kudadam.com/blog/{metadata.slug}"
 	openGraph={{
 		title: `${metadata.title}`,

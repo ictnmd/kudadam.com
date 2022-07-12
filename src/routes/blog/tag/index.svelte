@@ -1,6 +1,7 @@
 <script>
 	import Head from "svelte-seo";
 
+	/** @type {Array<String>} */
 	export let tags;
 
 	const meta = {
