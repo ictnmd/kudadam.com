@@ -1,6 +1,6 @@
 <script>
 	import Head from 'svelte-seo';
-	import { enhance } from '$lib/Scripts/form';
+	import { enhance } from "$utils/actions";
 	import Whatsapp from '$lib/icons/Whatsapp.svelte';
 	import Phone from '$lib/icons/Phone.svelte';
 	import Telegram from '$lib/icons/Telegram.svelte';
@@ -13,20 +13,23 @@
 		image: 'https://ik.imagekit.io/kudadam/logo/logo.png'
 	};
 
+
 	/**
-	 * This function is run when the form action is completed
-	 * @param {{
-	 reset: Function
-	  }} form 
-	  @returns {void} Returns nothing
+	 * 
+	 * @param {HTMLFormElement} form
 	 */
 	const done = (form) => {
 		alert('Mail has been sent');
 		form.reset();
 	};
 
-	const error = () => {
+	/**
+	 * 
+	 * @param {HTMLFormElement} form
+	 */
+	const error = (form) => {
 		alert('There was an error sending the mail');
+		form.reset
 	};
 </script>
 

@@ -1,8 +1,19 @@
 import { invalidate } from '$app/navigation';
 
-
-export const enhance = (form, { done, error } = {}) => {
+/**
+ * 
+ * @param {HTMLFormElement} form 
+ * @param {{
+	done?: Function,
+	error?: Function
+ }} param1
+ 
+ */
+export const enhance = (form, {done, error } = {}) => {
 	
+	/** The function which handles the form
+	 * @param {FormDataEvent} event
+	 */
 	const handleForm = async (event) => {
 		event.preventDefault();
 		try {
@@ -14,20 +25,23 @@ export const enhance = (form, { done, error } = {}) => {
 				body: new FormData(form)
 			});
 			if (request.ok) {
-				done(request, new FormData(form), form);
+				done?.(form,request, new FormData(form));
 				invalidate(form.action);
 			} else {
-				error(request, new FormData(form), form);
+				error?.(form,request, new FormData(form));
 			}
-		} catch (error) {
-			error(error, new FormData(form), form);
+		} 
+		catch (/** @type {*} */error) {
+			error(form,error, new FormData(form));
 		}
 	};
 
+	//@ts-ignorew
 	form.addEventListener('submit', handleForm);
 
 	return {
 		destroy() {
+			//@ts-ignore
 			form.removeEventListener('submit', handleForm);
 		}
 	};

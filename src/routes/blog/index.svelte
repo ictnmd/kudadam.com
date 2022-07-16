@@ -101,7 +101,7 @@
 				currentPage={1}
 				totalItems={total}
 				pageSize={6}
-				limit={2}
+				limit={1}
 			>
 				<a
 					sveltekit:prefetch

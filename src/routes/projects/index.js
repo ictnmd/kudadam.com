@@ -14,7 +14,7 @@ export const get = async ({ url }) => {
 	let chunks = chunk(projects, perPage);
 
 	const results = {
-		projects: chunks[page - 1];
+		projects: chunks[page - 1]
 	}
 
 	return {
