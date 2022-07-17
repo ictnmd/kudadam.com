@@ -13,7 +13,14 @@
 		image: 'https://ik.imagekit.io/kudadam/logo/logo.png'
 	};
 
-	const done = (request, form) => {
+	/**
+	 * This function is run when the form action is completed
+	 * @param {{
+	 reset: Function
+	  }} form 
+	  @returns {void} Returns nothing
+	 */
+	const done = (form) => {
 		alert('Mail has been sent');
 		form.reset();
 	};

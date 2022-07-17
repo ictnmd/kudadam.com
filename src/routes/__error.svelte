@@ -1,6 +1,7 @@
 <script context="module">
 	import { dev } from '$app/env';
 
+	/** @type {import('@sveltejs/kit').Load} */
 	export function load({ error, status }) {
 		return {
 			props: {
@@ -13,7 +14,10 @@
 
 <script>
 	import SEO from 'svelte-seo';
-	export let status, error;
+	/** @type {Number} */
+	export let status;
+	/** @type {Error}*/
+	export let error;
 </script>
 
 <SEO title="{status} Error" />

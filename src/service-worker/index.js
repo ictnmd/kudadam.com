@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { build, files, version, prerendered } from '$service-worker';
 
 const APPLICATION_CACHE = `applicationCache-${version}`;

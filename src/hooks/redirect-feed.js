@@ -1,5 +1,6 @@
 // This handler redirects the feeds url from "/blog/feed" to "/blog/feed.xml"
 
+/** @type {import('@sveltejs/kit').Handle} */
 const redirect = async ({ event, resolve }) => {
 	if (event.url.pathname === '/blog/feed') {
 		return Response.redirect(`${event.url.origin}/blog/feed.xml`, 301);

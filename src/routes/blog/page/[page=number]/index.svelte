@@ -9,14 +9,15 @@
 	export let total;
 	/** @type {Array<any>} */
 	export let posts;
+	
 
 	/**
 	 * @type {{
 		title: String,
 		description: String,
 		keywords: String,
-		canonical: URL,
-		image: URL
+		canonical: string,
+		image: string
 	 }}
 	 */
 	let meta = {

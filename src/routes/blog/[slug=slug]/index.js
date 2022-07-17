@@ -1,6 +1,11 @@
 import { getFiles } from '../index.json';
 import { token_set_ratio } from 'fuzzball';
 
+/** This function returns related articles between a title and a list of titles
+ * @param {String} title 
+ * @param {Array<any>} posts 
+ * @returns Array of blog posts
+ */
 const getRelatedArticles = async (title, posts) => {
 	const titles = posts
 		.map((post) => {
@@ -27,15 +32,26 @@ const getRelatedArticles = async (title, posts) => {
 	return related_articles;
 };
 
+/** @type {import('@sveltejs/kit').RequestHandler} */
 export const get = async ({ params }) => {
-	const results = new Object();
+
+	/**
+	 * @typedef {Object} Results
+	 * @property {Array<String>} related_articles - List of related articles
+	 * @property {Array<any>} readingTime - The reading time object
+	 */
+
 	const files = await getFiles();
 	const slug = params.slug;
 	const { title, readingTime } = files.filter((file) => file.slug === slug)[0];
 	const relatedArticles = await getRelatedArticles(title, files);
 
-	results['related_articles'] = [...relatedArticles];
-	results['readingTime'] = readingTime;
+	/** @type {Results} */
+	const results = {
+		related_articles: [...relatedArticles],
+		readingTime
+	}
+
 	return {
 		body: results
 	};

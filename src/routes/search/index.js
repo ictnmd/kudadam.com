@@ -1,9 +1,11 @@
 import { getFiles } from '../blog/index.json';
 
+/** @type {import('@sveltejs/kit').RequestHandler} */
 export const get = async () => {
 	const files = await getFiles();
-	const results = new Object();
-	results['data'] = files;
+	const results = {
+		data: files
+	}
 	return {
 		body: results
 	};

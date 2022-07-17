@@ -1,6 +1,7 @@
 import { getFiles } from '../../index.json.js';
 import { snakeCase } from '$utils';
 
+/** @type {import('@sveltejs/kit').RequestHandler} */
 export const get = async ({ params }) => {
 	const category = params.category;
 	const posts = await getFiles();
@@ -8,9 +9,10 @@ export const get = async ({ params }) => {
 		return snakeCase(post.category) === category;
 	});
 
-	const results = new Object();
-	results['posts'] = data;
-	results['category'] = data[0].category;
+	const results =  {
+		posts: data,
+		category: data[0].category
+	}
 
 	if (data.length === 0) {
 		return {

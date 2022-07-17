@@ -1,11 +1,16 @@
 <script type="text/javascript">
+// @ts-nocheck
+
 	import Head from 'svelte-seo';
 	import BlogCard from '$components/BlogCard';
 	import ProjectCard from '$components/ProjectCard';
 	import { fade } from 'svelte/transition';
 	import { onMount } from 'svelte';
 
-	export let articles, projects;
+	/** @type {Array<any>} */
+	export let articles;
+	/** @type {Array<any>}*/
+	export let projects;
 
 	let texts = [
 		'A full-stack web developer',

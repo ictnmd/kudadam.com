@@ -139,9 +139,9 @@
 		'now'
 	]);
 
-	/** @type {Array<String>} */
+	/** @type {Array<any>} */
 	let results = [];
-	/** @type {String} */
+	/** @type {string} */
 	let query;
 	let search = new Search({
 		fields: ['title', 'description'],
@@ -163,8 +163,9 @@
 
 	onMount(() => {
 		if (new URL(window.location.href).searchParams.has('q')) {
-			let parameter = new URL(window.location.href).searchParams.get('q');
-			query = parameter;
+			/** @type {string|URL} */
+			let parameter = new URL(window.location.href).searchParams.get('q') ?? "";
+			query = parameter.toString();
 		}
 		findResults();
 	});

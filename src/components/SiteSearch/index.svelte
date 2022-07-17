@@ -1,8 +1,11 @@
 <script>
 	import Modal from '$components/Modal';
 	import { onMount } from 'svelte';
-	let value, search;
+	/** @type {String}*/
+	let value;
+	let search;
 	export let hidden = true;
+	/** @type {Array<any>}*/
 	let results = [];
 	let Search;
 	let stop_words = new Set([

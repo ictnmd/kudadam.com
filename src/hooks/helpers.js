@@ -1,4 +1,8 @@
-function sequence(...handlers) {
+/**
+ * @param {...import('@sveltejs/kit').Handle} handlers
+ * @returns {import('@sveltejs/kit').Handle}
+ */
+ function sequence(...handlers) {
 	const length = handlers.length;
 	if (!length) return ({ event, resolve }) => resolve(event);
 
@@ -7,8 +11,8 @@ function sequence(...handlers) {
 
 		/**
 		 * @param {number} i
-		 * @param {import('types').RequestEvent} event
-		 * @returns {import('types').MaybePromise<Response>}
+		 * @param {import('@sveltejs/kit').RequestEvent} event
+		 * @returns {import('@sveltejs/kit/types/private').MaybePromise<Response>}
 		 */
 		function apply_handle(i, event) {
 			const handle = handlers[i];

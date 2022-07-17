@@ -24,9 +24,12 @@ const minification_options = {
 	removeEmptyElements: true
 };
 
+/** @type {import('@sveltejs/kit').Handle} */
 const Minify = async ({ event, resolve }) => {
+	/** @type {Response} */
 	const response = await resolve(event);
 	if (response.headers.get('content-type')) {
+		//@ts-ignore
 		if (response.headers.get('content-type').startsWith('text/html')) {
 			let body = await response.text();
 			return new Response(minify(body, minification_options), {

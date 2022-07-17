@@ -1,3 +1,4 @@
+// @ts-nocheck
 import Path from 'path';
 import { chunk } from '$utils';
 import { mode } from '$app/env';
@@ -17,6 +18,10 @@ db.serialize(() => {
 	);
 });
 
+/**
+ * 
+ * @returns {Array<any>} - An array containing blog posts
+ */
 export const getFilesHtml = async () => {
 	let array = new Array();
 	let data = import.meta.glob('./_blog/**/*.md');
@@ -24,7 +29,7 @@ export const getFilesHtml = async () => {
 	let id = 1;
 	let files = Promise.all(
 		array.map(async (file) => {
-			let { metadata } = await file[1];
+		let { metadata } = await file[1];
 			let def = await file[1];
 			metadata.html = def.default.render().html;
 			metadata.slug = file[0];

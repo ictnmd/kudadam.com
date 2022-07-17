@@ -2,7 +2,10 @@
 	import Head from 'svelte-seo';
 	import Card from '$components/BlogCard';
 
-	export let posts, category;
+	/** @type {Array<any>}*/
+	export let posts;
+	/** @type {String}*/
+	export let category;
 
 	const meta = {
 		title: `Blog Posts On ${category} • Kudadam`,

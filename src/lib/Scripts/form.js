@@ -1,6 +1,8 @@
 import { invalidate } from '$app/navigation';
 
+
 export const enhance = (form, { done, error } = {}) => {
+	
 	const handleForm = async (event) => {
 		event.preventDefault();
 		try {

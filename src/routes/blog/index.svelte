@@ -5,7 +5,14 @@
 </script>
 
 <script>
-	export let posts, total, popular_articles;
+// @ts-nocheck
+
+	/** @type {Array<any>}*/
+	export let posts;
+	/** @type {Number}*/
+	export let total;
+	/** @type {Array<any>}*/
+	export let popular_articles;
 
 	const meta = {
 		title: 'Blog - My personal journal • Kudadam',
@@ -100,8 +107,7 @@
 					sveltekit:prefetch
 					href={pageNumber === 1 ? '/blog' : `/blog/page/${pageNumber}`}
 					class="button hover:text-white visited:text-white px-4"
-					slot="number">{pageNumber}</a
-				>
+					slot="number">{pageNumber}</a>
 				<span slot="ellipsis" class="button px-4">...</span>
 			</PaginationNav>
 		</div>

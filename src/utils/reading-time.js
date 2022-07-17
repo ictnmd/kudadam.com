@@ -1,11 +1,22 @@
+// @ts-nocheck
 'use strict';
-
+/**
+ * 
+ * @param {Number} number 
+ * @param {Array} arrayOfRanges 
+ * @returns 
+ */
 function codeIsInRanges(number, arrayOfRanges) {
 	return arrayOfRanges.some(
 		([lowerBound, upperBound]) => lowerBound <= number && number <= upperBound
 	);
 }
 
+/**
+ * 
+ * @param {String} c 
+ * @returns {Boolean}
+ */
 function isCJK(c) {
 	if ('string' !== typeof c) {
 		return false;
@@ -20,10 +31,20 @@ function isCJK(c) {
 	]);
 }
 
+/**
+ * 
+ * @param {String} c 
+ * @returns 
+ */
 function isAnsiWordBound(c) {
 	return ' \n\r\t'.includes(c);
 }
 
+/**
+ * 
+ * @param {String} c 
+ * @returns 
+ */
 function isPunctuation(c) {
 	if ('string' !== typeof c) {
 		return false;
@@ -38,6 +59,7 @@ function isPunctuation(c) {
 		[0xff00, 0xffef]
 	]);
 }
+
 
 export default function readingTime(text, options = {}) {
 	let words = 0,

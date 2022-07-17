@@ -7,10 +7,12 @@
 	import Sun from '$lib/icons/sun.svelte';
 	import { theme } from '$lib/stores';
 	import { debounce } from '$utils';
-	let navElement;
+
 	import Header from 'svelte-headroom';
 
 	let hidden = true;
+	/** @type {HTMLElement} */
+	let navElement;
 	let hideSearch = true;
 	let nav_links = [
 		{ name: 'About', url: '/about', id: 1 },
@@ -32,10 +34,12 @@
 	onMount(() => {
 		document.addEventListener('mouseup', (e) => {
 			let selected = e.target;
+			// @ts-ignore
 			let closest = selected.closest('nav');
 			if (closest == null) hidden = true;
 		});
-		document.querySelector('#nav__header').parentElement.style.zIndex = 9999;
+		// @ts-ignore
+		document.querySelector('#nav__header').parentElement.style.zIndex = '9999';
 	});
 </script>
 

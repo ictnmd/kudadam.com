@@ -5,6 +5,7 @@
 		let component = await import(`../_blog/${slug}/index.md`);
 		component.metadata['slug'] = slug;
 		component.metadata['readingTime'] = props.readingTime;
+
 		return {
 			props: {
 				content: component.default,
@@ -29,16 +30,9 @@
 	import PageProgress from 'svelte-scrollprogress';
 	import { theme } from '$lib/stores';
 	import Cusdis from 'svelte-cusdis';
+	
 
-	/**
-	@type {{
-		title: String,
-		slug: URL,
-		description: String,
-		keywords: Array<String>,
-		date: Date,
-		image: URL
-	}} */
+	/** @type {import('$lib/types').BlogMetadata} */
 	export let metadata;
 	/** @type {Object} */
 	export let content;
@@ -65,7 +59,7 @@
 
 <Head
 	title="{metadata.title} • Kudadam Blog"
-	description={metadata.description}
+	description="{metadata.description}"
 	keywords={metadata.keywords.toString()}
 	canonical="https://kudadam.com/blog/{metadata.slug}"
 	openGraph={{
@@ -215,7 +209,9 @@
 		<div class="px-2">
 			<Cusdis
 				on:load={() => {
+					//@ts-ignore
 					window.CUSDIS.initial();
+					//@ts-ignore
 					window.CUSDIS.setTheme($theme);
 				}}
 				attrs={{

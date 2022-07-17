@@ -1,6 +1,7 @@
 <script>
 	import Head from 'svelte-seo';
 	import { snakeCase } from '$utils';
+	/** @type {Array<any>}*/
 	export let categories;
 	const meta = {
 		title: 'Blog Category • Kudadam',

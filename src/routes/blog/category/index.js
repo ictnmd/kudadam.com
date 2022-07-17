@@ -1,5 +1,6 @@
 import { getFiles } from '../index.json.js';
 
+/** @type {import('@sveltejs/kit').RequestHandler} */
 export const get = async () => {
 	let posts = await getFiles();
 	const categories = new Set(
@@ -7,9 +8,9 @@ export const get = async () => {
 			return post.category;
 		})
 	);
-	const results = new Object();
-	results['categories'] = [...categories];
-
+	const results = {
+		categories: [...categories]
+	}
 	return {
 		body: results
 	};

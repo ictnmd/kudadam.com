@@ -2,19 +2,55 @@
 	import ImageKit from '$utils/imagekit.js';
 	import { snakeCase } from '$utils';
 
+	/** Title of the blog post
+	 * @type {String}  
+	*/
 	export let title;
+	/** The slug of the blog post 
+	 * @type {String} */
 	export let slug;
+	/** @type {String} */
+	/**
+	 * The image url of the blog post
+	 * @type {String}
+	 */
 	export let image;
+	/**
+	 * The category which the blog post belongs to
+	 * @type {String|undefined}
+	 */
 	export let category = undefined;
+	/** Blog post excerpt
+	 * @type {String|null}
+	 */
 	export let excerpt;
+	/**
+	 * The reading time for the blog post
+	 * @type {Object|undefined}
+	 */
 	export let readingTime = undefined;
+	/**
+	 * The date which the article was written
+	 * @type {String}
+	 */
 	export let date;
+
 
 	const imageProps = {
 		height: 200,
 		width: 320
 	};
 </script>
+<!--
+
+	@component 	This is the component responsible for displaying blog posts on the website
+	@type {String} title - Title of the blog post
+	@type {String} slug - The slug of the blog post 
+	@type {String} image - The image url of the blog post
+	@type {String|undefined} category - The category which the blog post belongs to
+	@type {String} date - The date which the article was written
+ 	
+-->
 
 <article class="border border-neutral-200 dark:border-neutral-800  {$$props.class}">
 	{#if image}
