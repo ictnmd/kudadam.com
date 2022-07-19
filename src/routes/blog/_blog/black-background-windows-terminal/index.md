@@ -13,7 +13,7 @@ keywords:
 
 I recently found out about [Windows Terminal](https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701), a multi-tabbed terminal emulator for Windows. It also allows you to easily add other terminals to it. Since I was using [Cmder](https://cmder.app/), I wanted to add it to Windows Terminal and fortunately, I found [a tutorial](https://medium.com/talpor/windows-terminal-cmder-%EF%B8%8F-573e6890d143) for that.
 
-However, after opening Cmder on Windows Terminal, I found a bug, there was black background on the text.
+However, after opening Cmder on Windows Terminal, I found a bug, there was a black background on the text.
 
 ![black-background-windows-terminal](https://ik.imagekit.io/kudadam/blog/black-background-windows-terminal/example.png?tr=h-500)
 
@@ -29,7 +29,7 @@ To solve this bug, follow the following steps.
    This might be "C:\Program Files\Cmder" or any directory depending on how you installed the application.
 2. Then navigate to the config directory
 3. Inside the directory, there is a file named "cmder_prompt_config.lua", open this file with a code editor or any text editor of your choice.
-4. Make these changes to the "Prompt element colors" and replace all the 40's with 49.
+4. Make these changes to the "Prompt element colors" and replace all the 40s with 49.
 Before
 
 ```lua
