@@ -16,7 +16,6 @@
 	"devDependencies": {
 		"@sveltejs/adapter-node": "next",
 		"@sveltejs/kit": "next",
-		"aos": "^2.3.4",
 		"autoprefixer": "^10.4.7",
 		"eslint": "^8.19.0",
 		"eslint-config-prettier": "^8.5.0",

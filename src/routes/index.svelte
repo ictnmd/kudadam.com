@@ -5,7 +5,6 @@
 	import BlogCard from '$components/BlogCard';
 	import ProjectCard from '$components/ProjectCard';
 	import { fade } from 'svelte/transition';
-	import { onMount } from 'svelte';
 
 	/** @type {Array<any>} */
 	export let articles;
@@ -27,15 +26,6 @@
 		currentText = texts[(textsCounter + 1) % texts.length];
 		textsCounter++;
 	}, 4000);
-
-	onMount(async () => {
-		let Aos = await import('aos').then((e) => e.default);
-		await import('aos/dist/aos.css');
-		Aos.init({
-			duration: 1500,
-			once: false
-		});
-	});
 
 	const SEO = {
 		title: 'Lucretius Biah • Kudadam',
@@ -108,13 +98,14 @@
 		/>
 	</section>
 	<section class="grid grid-cols-3 items-center  justify-center gap-4">
-		<h2 class="display-4 font-bold text-center col-span-3" data-aos="fade-down">What I do?</h2>
-		<div class="col-span-3 md:col-span-2 display-8" data-aos="fade-right">
+		<h2 
+		class="display-4 font-bold text-center col-span-3">What I do?</h2>
+		<div class="col-span-3 md:col-span-2 display-8" 
+		>
 			I design stunning web interfaces using cutting-edge web technologies with a key🔑 focus on
 			accessibility and responsiveness to ensure users will have a great user experience💡.
 		</div>
 		<img
-			data-aos="fade-left"
 			class="col-span-3 row-start-2 md:row-start-[unset] md:col-span-1 mx-auto"
 			alt="A developer standing by portfolio"
 			src="https://ik.imagekit.io/kudadam/svg/showing_resume.svg?q=1"
@@ -123,22 +114,21 @@
 			loading="lazy"
 		/>
 	</section>
-	<section class="grid grid-cols-3 items-center justify-center  gap-4">
+	<section class="grid grid-cols-3 items-center justify-center gap-4">
 		<img
 			height="450"
 			width="450"
-			data-aos="flip-right"
 			class="col-span-3 md:col-span-1"
 			src="https://ik.imagekit.io/kudadam/svg/dev.svg?q=1"
 			alt="Developer sitting in front of a laptop"
 		/>
-		<div class="display-8 col-span-3 md:col-span-2" data-aos="flip-left">
+		<div class="display-8 col-span-3 md:col-span-2">
 			When I am not designing user interfaces, I develop software and write the behind-the-scenes
 			code that makes a website function. I do everything database, servers and caching
 		</div>
 	</section>
 	<section>
-		<div data-aos="zoom-in-down" class="text-center">
+		<div class="text-center">
 			<h2 class="display-4">Writing✍️</h2>
 			<p>Over here is a list of some articles I have written</p>
 		</div>
@@ -160,7 +150,7 @@
 		</section>
 	</section>
 	<section>
-		<div data-aos="zoom-in-down" class="text-center">
+		<div class="text-center">
 			<h2 class="display-4">Projects🚀</h2>
 			<p>A few things I have built</p>
 		</div>
