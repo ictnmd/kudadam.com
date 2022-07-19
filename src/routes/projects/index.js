@@ -1,24 +1,27 @@
 import projects from './projects.json';
 import { chunk } from '$utils';
 
-
-export const get = async ({ url }) => {
+/** @type {import('@sveltejs/kit').RequestHandler} */
+export const GET = async ({ url }) => {
+	/** @type {Number} */
 	let perPage = 6;
 	let page = 1;
 
 	if (url.searchParams) {
-		if (url.searchParams.has('page')) page = url.searchParams.get('page');
+		if (url.searchParams.has('page'))
+			page = parseInt(url.searchParams.get('page') ?? "");
 
-		if (url.searchParams.has('per_page')) perPage = url.searchParams.get('per_page');
+		if (url.searchParams.has('per_page')) perPage = parseInt(url.searchParams.get('per_page')?? "");
 	}
 	let chunks = chunk(projects, perPage);
+
 
 	const results = {
 		projects: chunks[page - 1]
 	}
 
 	return {
-		body: new Object(results)
+		body: results
 	};
 };
 

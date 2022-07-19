@@ -1,7 +1,7 @@
 import { getFiles } from '../../index.json.js';
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
-export const get = async ({ params }) => {
+export const GET = async ({ params }) => {
 	const tag = params.tag;
 	let posts = await getFiles();
 	/** @type {Array<any>} */

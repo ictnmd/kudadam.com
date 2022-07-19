@@ -2,7 +2,7 @@ import { chunk } from '$utils';
 import { getFiles, getPopularArticles } from './index.json.js';
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
-export const get = async () => {
+export const GET = async () => {
 	const posts = await getFiles();
 
 	const results = {

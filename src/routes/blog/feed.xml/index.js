@@ -18,7 +18,8 @@ const sort_items = async (files) => {
 	return rss;
 };
 
-export async function get({ url }) {
+/** @type {import('@sveltejs/kit').RequestHandler} */
+export async function GET({ url }) {
 	try {
 		let files = await getFilesHtml();
 		if (url.searchParams.has('category')) {

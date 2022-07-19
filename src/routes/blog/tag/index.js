@@ -1,6 +1,6 @@
 import { getFiles } from '../index.json.js';
 
-export const get = async () => {
+export const GET = async () => {
 	const posts = await getFiles();
 	const tags = new Set();
 	posts.forEach((post) => {

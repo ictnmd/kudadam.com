@@ -2,7 +2,7 @@ import { getFiles } from '../../index.json.js';
 import { snakeCase } from '$utils';
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
-export const get = async ({ params }) => {
+export const GET = async ({ params }) => {
 	const category = params.category;
 	const posts = await getFiles();
 	let data = posts.filter((post) => {

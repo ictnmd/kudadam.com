@@ -36,7 +36,7 @@ The list of functions are;
 For example, to get the I.P address of a user in the `get` method, you would simple write this🔽
 
 ```javascript
-export const get = async ({ clientAddress }) => {
+export const GET = async ({ clientAddress }) => {
 	let ip_address = clientAddress;
 };
 ```

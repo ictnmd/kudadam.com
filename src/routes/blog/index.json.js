@@ -89,7 +89,7 @@ export const getPopularArticles = async () => {
 };
 
 /** @type import('@sveltejs/kit').RequestHandler */
-export const get = async ({ url }) => {
+export const GET = async ({ url }) => {
 	let posts = await getFiles();
 	posts = posts.sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf());
 	let unsorted = posts;

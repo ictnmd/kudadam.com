@@ -135,7 +135,7 @@ const getData = async (slug) => {
 	});
 };
 
-export const get = async ({ params, query }) => {
+export const GET = async ({ params, query }) => {
 	try {
 		let results = new Object();
 		let { slug } = params;

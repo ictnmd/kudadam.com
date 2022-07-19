@@ -1,7 +1,7 @@
 import { getFiles } from '../index.json.js';
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
-export const get = async () => {
+export const GET = async () => {
 	let posts = await getFiles();
 	const categories = new Set(
 		posts.map((post) => {

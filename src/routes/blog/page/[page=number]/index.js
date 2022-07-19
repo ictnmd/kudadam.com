@@ -2,7 +2,7 @@ import { chunk } from '$utils';
 import { getFiles } from '../../index.json.js';
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
-export const get = async ({ params }) => {
+export const GET = async ({ params }) => {
 	/** @type {Number} */
 	const page = parseInt(params.page);
 	const files = await getFiles();

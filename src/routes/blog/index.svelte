@@ -1,6 +1,6 @@
 <script context="module">
 	import Card from '$components/BlogCard';
-	import { PaginationNav } from 'svelte-paginate';
+	import { PaginationNav } from 'svelte-better-paginate';
 	import Head from 'svelte-seo';
 </script>
 

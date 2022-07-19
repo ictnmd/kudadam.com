@@ -33,7 +33,7 @@ const getRelatedArticles = async (title, posts) => {
 };
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
-export const get = async ({ params }) => {
+export const GET = async ({ params }) => {
 
 	/**
 	 * @typedef {Object} Results

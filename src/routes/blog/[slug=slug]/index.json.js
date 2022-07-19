@@ -1,4 +1,4 @@
-import sqlite, { Database } from 'sqlite3';
+import sqlite from 'sqlite3';
 
 const db = new sqlite.Database('./database.db', () => {}); //This command will create the database for us if it does not exist
 
@@ -56,7 +56,7 @@ const increaseHitsCount = async (slug, hits) => {
 };
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
-export const get = async ({ params }) => {
+export const GET = async ({ params }) => {
 	/**
 	 * @typedef {Object} Results
 	 * @property {String} slug - The slug
@@ -80,7 +80,7 @@ export const get = async ({ params }) => {
 };
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
-export const post = async ({ request, params }) => {
+export const POST = async ({ request, params }) => {
 	const body = await request.json();
 	const slug = params.slug;
 

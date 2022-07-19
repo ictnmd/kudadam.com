@@ -1,7 +1,7 @@
 <script>
 	import Head from 'svelte-seo';
 	import Card from '$components/BlogCard';
-	import { PaginationNav } from 'svelte-paginate';
+	import { PaginationNav } from 'svelte-better-paginate';
 
 	/** @type {Number} */
 	export let page;

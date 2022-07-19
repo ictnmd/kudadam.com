@@ -64,7 +64,7 @@ const sort_items = async () => {
 	return rss;
 };
 
-export function get(req, res, next) {
+export function GET(req, res, next) {
 	let rss = sort_items().then((items) => {
 		let feed = `<?xml version="1.0" encoding="UTF-8" ?>
   <rss version="2.0">
