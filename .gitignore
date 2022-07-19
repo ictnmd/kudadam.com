@@ -11,3 +11,4 @@ node_modules
 /database.db-wal
 database.db-shm
 database.db-wal
+/.vscode
