@@ -1,9 +1,10 @@
 <script>
+	import whatsapp  from '$lib/icons/whatsapp-brands.svg?raw';
+	import phone from "$lib/icons/phone.svg?raw";
+	import telegram from "$lib/icons/telegram-brands.svg?raw";
+	import Icon from '$components/Icon';
 	import Head from 'svelte-seo';
 	import { enhance } from "$utils/actions";
-	import Whatsapp from '$lib/icons/Whatsapp.svelte';
-	import Phone from '$lib/icons/Phone.svelte';
-	import Telegram from '$lib/icons/Telegram.svelte';
 
 	const SEO = {
 		title: 'Contact Me • Kudadam',
@@ -88,9 +89,9 @@
 			<button type="submit">Submit</button>
 		</form>
 		<ul class="grid list-none grid-cols-1 mt-6 md:grid-cols-2">
-			<li><a href="tel:0249005710"><Phone /> +233 249 005 710</a></li>
-			<li><a href="https://wa.link/jebvr2"><Whatsapp /> WhatsApp</a></li>
-			<li><a href="https://t.me/kudadam"><Telegram /> Telegram</a></li>
+			<li><a href="tel:0249005710"><Icon data={phone}	/> +233 249 005 710</a></li>
+			<li><a href="https://wa.link/jebvr2"><Icon data={whatsapp}/> WhatsApp</a></li>
+			<li><a href="https://t.me/kudadam"><Icon data={telegram}/> Telegram</a></li>
 		</ul>
 	</div>
 </main>

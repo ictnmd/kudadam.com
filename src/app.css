@@ -7,6 +7,8 @@
 	--scrollbar-thumb: #6f6f6f;
 }
 
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -25,6 +27,11 @@
 
 .category_web_development {
 	background: var(--category-web-development);
+}
+
+svg {
+	display: inline;
+	vertical-align: unset;
 }
 
 body::-webkit-scrollbar {

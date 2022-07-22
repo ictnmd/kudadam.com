@@ -1,9 +1,10 @@
 <script>
-	import Github from '$lib/icons/Github.svelte';
-	import Twitter from '$lib/icons/twitter.svelte';
-	import Whatsapp from '$lib/icons/Whatsapp.svelte';
-	import RSS from '$lib/icons/rss.svelte';
-	import Heart from '$lib/icons/heart.svelte';
+	import Icon from "$components/Icon";
+	import github from '$lib/icons/github-brands.svg?raw';
+	import twitter from '$lib/icons/twitter-brands.svg?raw';
+	import whatsapp from '$lib/icons/whatsapp-brands.svg?raw';
+	import pulse from '$lib/icons/heart-pulse.svg?raw';
+	import rss from "$lib/icons/rss-solid.svg?raw";
 	import Subscribe from '$components/NewsletterSubscribeForm';
 </script>
 
@@ -18,7 +19,7 @@
 		<div>
 			<p class="font-bold">Quick Links</p>
 			<ul>
-				<li><a href="/blog/feed.xml"><RSS /> RSS feed</a></li>
+				<li><a href="/blog/feed.xml" sveltekit:prefetch><Icon data={rss} class="inline"/> RSS feed</a></li>
 				<li><a href="/sitemap.xml" sveltekit:prefetch>Sitemap.xml</a></li>
 				<li><a href="/blog" sveltekit:prefetch>Blog</a></li>
 				<li><a href="/projects" sveltekit:prefetch>Projects</a></li>
@@ -29,17 +30,16 @@
 			<ul>
 				<li>
 					<a href="https://www.github.com/kudadam" target="_blank" rel="noopener">
-						<Github />
-						Github
+						<Icon data={github} class="inline"/> Github
 					</a>
 				</li>
 				<li>
 					<a href="https://twitter.com/kudadam_" target="_blank" rel="noopener"
-						><Twitter /> kudadam_</a
+						><Icon data={twitter} class="inline" /> kudadam_</a
 					>
 				</li>
 				<li>
-					<a href="https://wa.link/7hc27i"><Whatsapp /> WhatsApp</a>
+					<a href="https://wa.link/7hc27i"><Icon class="inline" data={whatsapp}/> WhatsApp</a>
 				</li>
 			</ul>
 		</div>
@@ -47,7 +47,7 @@
 	<div class="text-center">
 		<p class="pb-1">
 			<span class="block md:inline"
-				>Made with <Heart class="text-red-500 animate-pulse" /> and built with
+				>Made with <Icon data={pulse} class="inline animate-pulse text-red-500"/> and built with
 				<a href="https://kit.svelte.dev" target="_blank" rel="noopener">SvelteKit</a></span
 			>
 			<span class="invisible md:visible">·</span>

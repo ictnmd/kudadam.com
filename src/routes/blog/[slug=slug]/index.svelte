@@ -18,10 +18,11 @@
 
 <script>
 	import Head from 'svelte-seo';
+	import Icon from "$components/Icon";
 	import Card from '$components/BlogCard';
-	import RectangleList from '$lib/icons/RectangleList.svelte';
-	import Tags from '$lib/icons/Tags.svelte';
-	import Eye from '$lib/icons/Eye.svelte';
+	import rectangle_list from "$lib/icons/rectangle-list.svg?raw";
+	import tag from "$lib/icons/tag.svg?raw";
+	import eye from '$lib/icons/eye-solid.svg?raw';
 	import { snakeCase, importScripts } from '$utils';
 	import { onMount } from 'svelte';
 	import { browser } from '$app/env';
@@ -135,20 +136,20 @@
 		</article>
 		<ul class="py-2 px-4 my-1 text-base pl-2 list-none gap-x-2">
 			<li>
-				<span
-					><RectangleList />
+				<span>
+					<Icon data={rectangle_list}/> Category:
 					<a href="/blog/category/{snakeCase(metadata.category)}">{metadata.category}</a></span
 				>
 			</li>
 			<li class="flex gap-x-3 items-center">
 				{#if metadata.tags}
-					<Tags />
+					<Icon data={tag}/> Tags:
 					{#each metadata.tags as tag}
 						<a href="/blog/tag/{tag}">#{tag}</a>
 					{/each}
 				{/if}
 			</li>
-			<li><Eye /> {hits}</li>
+			<li><Icon data={eye}/> {hits}</li>
 		</ul>
 		<p class="font-bold text-lg text-[tomato] text-center">Share this article</p>
 		<!-- AddToAny BEGIN -->

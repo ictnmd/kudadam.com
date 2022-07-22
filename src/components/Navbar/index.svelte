@@ -1,10 +1,10 @@
 <script type="text/javascript">
-	import SearchIcon from '$lib/icons/search.svelte';
+	import magnifying_glass from '$lib/icons/magnifying-glass.svg?raw';
 	import Search from '$components/SiteSearch';
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
-	import Moon from '$lib/icons/moon.svelte';
-	import Sun from '$lib/icons/sun.svelte';
+	import moon from '$lib/icons/moon.svg?raw';
+	import sun from '$lib/icons/sun.svg?raw';
 	import { theme } from '$lib/stores';
 	import { debounce } from '$utils';
 
@@ -93,9 +93,9 @@
 			></a
 		>
 		<span
-			class="ml-auto block p-3"
+			class="ml-auto block p-2"
 			on:click={() => (hideSearch = !hideSearch)}
-			title="Search the website for information"><SearchIcon /></span
+			title="Search the website for information">{@html magnifying_glass}</span
 		>
 		<button
 			title="Open or close navigation bar"
@@ -135,15 +135,18 @@
 							class:active={$page.url.pathname === `/${name.toLowerCase()}`}
 							on:click={() => {
 								hidden = true;
-							}}
-						>
+							}}>
 							{name}
 						</a>
 					</li>
 				{/each}
-				<li class="p-3 text-lg font-semibold">
-					<span on:click={setMode} title="Change Mode">
-						{#if $theme === 'light'}<Moon />{:else}<Sun />{/if}
+				<li class="text-lg  font-semibold p-2">
+					<span on:click={setMode}  title="Change Mode">
+						{#if $theme === "light"}
+							{@html moon}
+						{:else}
+							{@html sun}
+						{/if}
 					</span>
 				</li>
 				<slot />

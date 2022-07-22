@@ -1,6 +1,6 @@
 {
 	"name": "kudadam.com",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
@@ -40,7 +40,6 @@
 		"svelte-check": "^2.8.0",
 		"svelte-cusdis": "^0.0.4",
 		"svelte-headroom": "^2.2.1",
-		"svelte-icon": "^1.2.4",
 		"svelte-preprocess": "^4.10.7",
 		"svelte-scrollprogress": "^1.0.1",
 		"svelte-seo": "^1.4.1",
