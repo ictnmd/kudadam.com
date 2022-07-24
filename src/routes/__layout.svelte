@@ -20,7 +20,7 @@
 	<script async src="//static.getclicky.com/101371905.js"></script>
 </head>
 
-<div class="container mx-auto min-h-screen px-3 mt-20" id="layout_root">
+<div class="container mx-auto min-h-screen px-2 mt-20" id="layout_root">
 	<slot />
 </div>
 <Update />

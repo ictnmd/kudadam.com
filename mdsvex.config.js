@@ -13,6 +13,10 @@ const config = defineConfig({
 		[
 			rehype_toc,
 			{
+				/** This function modifies the table of contents 
+				 * before rendering it
+				 * @param {Node} toc 
+				 */
 				customizeTOC: (toc) => {
 					if (toc.children[0].children.length >= 1) {
 						// Adds a paragraph element which contains the text "Table Of Contents"
@@ -20,7 +24,7 @@ const config = defineConfig({
 							type: 'element',
 							tagName: 'p',
 							properties: {
-								className: 'font-semibold text-xl inline-block my-1'
+								className: 'font-semibold text-xl inline-block my-1 text-center'
 							},
 							children: [
 								{
@@ -51,10 +55,7 @@ const config = defineConfig({
 		remark_slug,
 		remark_emoji,
 		remark_breaks
-	],
-	smartypants: {
-		dashes: 'oldschool'
-	}
+	]
 });
 
 export default config;

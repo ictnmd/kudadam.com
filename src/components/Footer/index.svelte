@@ -3,6 +3,7 @@
 	import github from '$lib/icons/github-brands.svg?raw';
 	import twitter from '$lib/icons/twitter-brands.svg?raw';
 	import whatsapp from '$lib/icons/whatsapp-brands.svg?raw';
+	import telegram from "$lib/icons/telegram-brands.svg?raw";
 	import pulse from '$lib/icons/heart-pulse.svg?raw';
 	import rss from "$lib/icons/rss-solid.svg?raw";
 	import Subscribe from '$components/NewsletterSubscribeForm';
@@ -17,16 +18,19 @@
 			<Subscribe />
 		</div>
 		<div>
-			<p class="font-bold">Quick Links</p>
+			<p class="font-bold my-1">Quick Links</p>
 			<ul>
-				<li><a href="/blog/feed.xml" sveltekit:prefetch><Icon data={rss} class="inline"/> RSS feed</a></li>
-				<li><a href="/sitemap.xml" sveltekit:prefetch>Sitemap.xml</a></li>
+				<li><a href="/about" sveltekit:prefetch>About</a></li>
+				<li><a href="/contact" sveltekit:prefetch>Contact</a></li>
 				<li><a href="/blog" sveltekit:prefetch>Blog</a></li>
 				<li><a href="/projects" sveltekit:prefetch>Projects</a></li>
+				<li><a href="/blog/feed.xml" sveltekit:prefetch><Icon data={rss} class="inline"/> RSS feed</a></li>
+				<li><a href="/sitemap.xml" sveltekit:prefetch>Sitemap.xml</a></li>
+
 			</ul>
 		</div>
 		<div>
-			<p class="font-bold">Contact</p>
+			<p class="font-bold my-1">Contact</p>
 			<ul>
 				<li>
 					<a href="https://www.github.com/kudadam" target="_blank" rel="noopener">
@@ -41,13 +45,14 @@
 				<li>
 					<a href="https://wa.link/7hc27i"><Icon class="inline" data={whatsapp}/> WhatsApp</a>
 				</li>
+				<li><a href="https://t.me/kudadam"><Icon data={telegram}/> Telegram</a></li>
 			</ul>
 		</div>
 	</div>
 	<div class="text-center">
 		<p class="pb-1">
 			<span class="block md:inline"
-				>Made with <Icon data={pulse} class="inline animate-pulse text-red-500"/> and built with
+				>Made with <Icon data={pulse} class="animate-pulse text-red-500"/> and built with
 				<a href="https://kit.svelte.dev" target="_blank" rel="noopener">SvelteKit</a></span
 			>
 			<span class="invisible md:visible">·</span>
@@ -59,7 +64,7 @@
 				></span
 			>
 		</p>
-		<p class="bg-black py-2 m-0">copyright &copy; 2020 - Now, Lucretius Biah</p>
+		<p class="bg-black m-0">copyright &copy; 2020 - Today, Lucretius Biah</p>
 	</div>
 </footer>
 
@@ -71,7 +76,8 @@
 		padding: 5px;
 	}
 	#flexible ul li {
-		padding: 5px 0px;
+		padding: 0px;
+		padding-bottom: 4px;
 	}
 	#flexible a {
 		color: inherit !important;

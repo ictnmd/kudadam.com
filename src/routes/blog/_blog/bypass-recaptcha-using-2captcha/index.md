@@ -18,7 +18,7 @@ tags:
 
 <p class="intro">
 	CAPTCHA's are really really annoying, even though they are there for security purposes, they tend to consume our time.
-	Imagine filling a 5 minute form and then you have to restart filling the form again just because you got that annoying :angry: CAPTCHA wrong.<br/>
+	Imagine filling a 5 minute form and then you have to restart filling the form again just because you got that annoying CAPTCHA wrong.<br/>
 	But..., there's a solution, <a href="https://2captcha.com/">2captcha</a>
 </p>
 

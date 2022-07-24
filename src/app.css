@@ -31,7 +31,6 @@
 
 svg {
 	display: inline;
-	vertical-align: unset;
 }
 
 body::-webkit-scrollbar {
@@ -278,7 +277,7 @@ body::-webkit-scrollbar-thumb:active {
 	}
 
 	blockquote {
-		@apply relative p-9 pb-2 italic my-12;
+		@apply relative p-9 pb-2 italic my-5;
 		border-left-color: var(--primary-color);
 	}
 

@@ -22,6 +22,7 @@ date: 2021-12-29
 <p class="intro">
 So this blog post is about a problem which I found in Sololearn where you are to make a simple program that takes a group of text and then returns a dictionary showing the occurence of each letter
 </p>
+
 So a letter counter is simply a program which takes a text or string and returns the number of occurrence of each letter. We are going to make a python function which takes a string and returns a dictionary with the number of occurence of each letter
 
 ## The code
