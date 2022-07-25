@@ -1,8 +1,11 @@
 import { getFilesHtml } from '../index.json.js';
 import { snakeCase, includesMany, encodeHtml } from '$utils';
 
+/**
+ * @param {Array<any>} files 
+ */
 const sort_items = async (files) => {
-	let rss = ``;
+	let rss = ``;	
 	files.forEach((post) => {
 		rss += `
 <item>
@@ -23,15 +26,15 @@ export async function GET({ url }) {
 	try {
 		let files = await getFilesHtml();
 		if (url.searchParams.has('category')) {
-			let categories = url.searchParams.get('category').split(',');
+			let categories = url.searchParams.get('category')?.split(',');
 			files = files.filter((file) => {
 				let category = snakeCase(file.category);
-				return categories.includes(category);
+				return categories?.includes(category);
 			});
 		}
 
 		if (url.searchParams.has('tags')) {
-			let tags = url.searchParams.get('tags').split(',');
+			let tags = url.searchParams.get('tags')?.split(',');
 			files = files.filter((file) => {
 				if (file.tags) return includesMany(tags, file.tags);
 			});
@@ -55,7 +58,6 @@ export async function GET({ url }) {
 		<copyright>2021 - Now, Lucretius Biah.</copyright>
 	</channel>
 </rss>`;
-
 		return {
 			headers: {
 				'Content-Type': 'application/xml'
