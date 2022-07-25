@@ -1,7 +1,7 @@
 // @ts-nocheck
 import Path from 'path';
 import { chunk } from '$utils';
-import { mode } from '$app/env';
+import { dev } from "$app/env";
 import sqlite from 'sqlite3';
 import { readingTime } from '$utils';
 
@@ -39,7 +39,7 @@ export const getFilesHtml = async () => {
 		})
 	);
 	files = await files;
-	files = files.filter((data) => data.draft !== true || mode === 'development');
+	files = files.filter((data) => data.draft !== true || dev === true);
 	files = files.sort((a, b) => new Date(b.date) - new Date(a.date));
 	return files;
 };
@@ -61,7 +61,7 @@ export const getFiles = async () => {
 		})
 	);
 	files = await files;
-	files = files.filter((data) => data.draft !== true || mode === 'development');
+	files = files.filter((data) => data.draft !== true || dev === true);
 	files = files.sort((a, b) => new Date(b.date) - new Date(a.date));
 	return files;
 };
