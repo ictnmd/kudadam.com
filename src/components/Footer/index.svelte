@@ -8,7 +8,10 @@
 	import rss from "$lib/icons/rss-solid.svg?raw";
 	import Subscribe from '$components/NewsletterSubscribeForm';
 </script>
-
+<!--
+@component
+The website's footer component
+-->
 <footer class="bg-gray-800 text-gray-400 text-base pt-4 mt-14 md:relative w-fullx`x">
 	<div
 		class="px-3 flex flex-wrap justify-evenly xl:justify-center  gap-x-20 mt-4 mb-2"
