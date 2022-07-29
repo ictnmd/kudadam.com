@@ -68,8 +68,12 @@ body::-webkit-scrollbar-thumb:active {
 	@apply text-center;
 }
 
+.pagination-nav a {
+	@apply bg-transparent border text-inherit dark:border-neutral-700 !important;
+}
+
 .pagination-nav .active > a {
-	@apply bg-blue-500;
+	@apply border-blue-500 !important;
 }
 
 @layer base {

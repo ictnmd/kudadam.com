@@ -108,7 +108,7 @@
 					href={pageNumber === 1 ? '/blog' : `/blog/page/${pageNumber}`}
 					class="button hover:text-white visited:text-white px-4"
 					slot="number">{pageNumber}</a>
-				<span slot="ellipsis" class="button px-4">...</span>
+				<span slot="ellipsis">...</span>
 			</PaginationNav>
 		</div>
 	</div>
