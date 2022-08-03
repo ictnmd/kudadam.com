@@ -1,7 +1,6 @@
 import { invalidate } from '$app/navigation';
 
-/**
- * 
+/** Enhances a form and make it able to work without JavaScript
  * @param {HTMLFormElement} form 
  * @param {{
 	done?: Function,

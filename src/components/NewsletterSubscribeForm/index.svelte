@@ -1,39 +1,39 @@
 <script>
-	
-	const enhance = (node) => {
-		const handleSubmit = async (event) => {
-			event.preventDefault();
-			node.querySelector(`button[type="submit"]`).disabled = true;
-			const response = await fetch(node.action, {
-				method: node.method,
-				body: new FormData(node),
-				headers: { accept: 'application/json' }
-			});
-			if (response.ok) alert('Hello, a verification email has been sent to your inbox');
-			node.reset();
-			node.querySelector(`button[type="submit"]`).disabled = false;
-		};
-		node.addEventListener('submit', handleSubmit);
+	import { enhance } from "$utils/actions";
 
-		return {
-			destroy() {
-				node.removeEventListener('submit', handleSubmit);
-			}
-		};
-	};
+	/**
+	 * 
+	 * @param {HTMLFormElement} form
+	 * @param  {Request} request
+	 */
+	const done = (form)=>{
+		alert("Please verify the request in your inbox");
+		form.reset();
+	}
+
+	/**
+	 * 
+	 * @param {HTMLFormElement} form
+	 */
+	const error = (form)=>{
+		alert("Please verify the request in your inbox");
+		form.reset();
+	}
 </script>
 
 <form
+	on:submit|preventDefault
 	class="max-w-sm bg-purple-700 py-1 px-3 rounded-lg"
-	use:enhance
-	action="https://buttondown.email/api/emails/embed-subscribe/lucretius"
+	use:enhance={{done}}
+	action="https://f193a4a1.sibforms.com/serve/MUIEAAP0t5rcDsVExcu5qWsNa1horTGNxpImyu3hnKxj3MX0tUKYhkp9i6QYQ75YemzsYOJAFRnuwSOR9BXBSq5T2AEC3C4NevrqRM1hVDqcosiDFbjUnaFTXQz0NEzAx0f5FphplTvQbUkOGcB4xAmSNLZmjRbQ1Q0lCruCq_YIepL9_epJo17koQYX3gEqltxyXlqzsc5Darda"
 	method="POST"
 >
 	<h3 class="text-3xl text-white mb-4 font-semibold">Subscribe to Newsletter</h3>
+	<input type="text" class="my-1" placeholder="Your First Name" name="FIRSTNAME">
 	<input
 		type="email"
 		class="!bg-white p-1"
-		name="email"
+		name="EMAIL"
 		placeholder="Email Account"
 		title="Your email address"
 		required
