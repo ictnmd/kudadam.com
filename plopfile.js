@@ -6,7 +6,7 @@ export default function (plop) {
 	plop.setHelper('date', () => shortDate),
 		plop.setHelper('ISOStringDate', () => today.toISOString()),
 		plop.setWelcomeMessage(`
-    Kudadam.com 👦
+Kudadam.com 👦
 ------------------------------------------
 My personal website built with SvelteKit & TailwindCSS`);
 
