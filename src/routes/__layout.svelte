@@ -17,7 +17,7 @@
 <Head>
 	<link rel="alternate" type="application/rss+xml" href="https://www.kudadam.com/blog/feed.xml" />
 	<link rel="preconnect" href="https://ik.imagekit.io/kudadam" />
-	<script async src="//static.getclicky.com/101376922.js"></script>
+	<script async src="//static.getclicky.com/101376931.js"></script>
 </Head>
 
 <div class="container mx-auto min-h-screen px-2 mt-20" id="layout_root">
@@ -25,4 +25,4 @@
 </div>
 <Update />
 <Footer />
-<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101376922ns.gif" /></p></noscript>
+<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101376931ns.gif" /></p></noscript>
