@@ -49,6 +49,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@sveltejs/adapter-cloudflare": "^1.0.0-next.32",
 		"html-minifier": "^4.0.0",
 		"sqlite3": "5.0.2"
 	}

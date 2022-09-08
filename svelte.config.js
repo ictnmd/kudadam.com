@@ -1,7 +1,8 @@
 import { mdsvex } from 'mdsvex';
 import mdsvexConfig from './mdsvex.config.js';
 import preprocess from 'svelte-preprocess';
-import adapter from '@sveltejs/adapter-node';
+// import adapter from '@sveltejs/adapter-node';
+import adapter from '@sveltejs/adapter-cloudflare';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -23,7 +24,11 @@ const config = {
 			preserve: ['ld+json']
 		}),
 		mdsvex(mdsvexConfig)
-	]
+	],
+	// methodOverride: {
+	// 	parameter: '_method',
+	// 	allowed: ['PUT', 'PATCH', 'DELETE']
+	// }
 };
 
 export default config;
